@@ -93,7 +93,7 @@ filetype plugin indent on    " required
 " {{{
 " 
 " Write and Return to File Explorer
-command W w | Rexplore
+command! W w | Rexplore
 "
 " }}}
 
