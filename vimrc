@@ -89,6 +89,13 @@ filetype plugin indent on    " required
 " the value of the 'compatible' option.
 " }}}
 
+" Custom Commands
+" {{{
+" 
+" Write and Return to File Explorer
+command W w | Rexplore
+"
+" }}}
 
 " Styling
 " {{{
