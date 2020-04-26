@@ -154,7 +154,7 @@ set incsearch		" Incremental search
 set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set hlsearch		" Highlight matches for search 
-let NERDTreeShowHIdden = 1    " Show hidden files in NERDTree
+let NERDTreeShowHidden=1    " Show hidden files in NERDTree
 " }}}
 
 " Source a global configuration file if available
