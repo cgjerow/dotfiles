@@ -46,9 +46,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 "{{{
 Plugin 'sheerun/vim-polyglot'
-Plugin 'cgjerow/awesome-vim-colorschemes'
+Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'atelierbram/Base2Tone-vim'
+Plugin 'scrooloose/nerdtree'
 
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -114,7 +115,8 @@ syntax on
 " colorscheme 256_noir 
 " colorscheme murphy
 " colorscheme old_fashioned
-colorscheme Base2Tone_DesertDark
+" colorscheme Base2Tone_DesertDark
+colorscheme dogrun
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -152,6 +154,7 @@ set incsearch		" Incremental search
 set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set hlsearch		" Highlight matches for search 
+let NERDTreeShowHIdden = 1    " Show hidden files in NERDTree
 " }}}
 
 " Source a global configuration file if available
