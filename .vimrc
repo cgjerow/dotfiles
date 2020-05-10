@@ -50,6 +50,7 @@ Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
 
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -116,11 +117,12 @@ syntax on
 " colorscheme murphy
 " colorscheme old_fashioned
 " colorscheme Base2Tone_DesertDark
-colorscheme dogrun
+" colorscheme dogrun
+colorscheme abstract
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+" set background=dark
 
 " Ignore case by default
 set ignorecase
