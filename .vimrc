@@ -101,6 +101,8 @@ filetype plugin indent on    " required
 command! W w | Rexplore
 " SFDX Write and Compile 
 command! Wdx w | !sfdx force:source:deploy -p %
+" Escape without escape key
+inoremap jj <ESC>
 "
 " }}}
 
