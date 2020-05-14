@@ -99,7 +99,7 @@ filetype plugin indent on    " required
 " {{{
 " 
 " Write and Return to File Explorer
-command! -nargs=+ W Gw | Gcommit -m <q-args> 
+command! -nargs=+ W Gw | Gcommit -m <q-args> | Gpush
 " SFDX Write and Compile 
 command! Wdx w | !sfdx force:source:deploy -p %
 " Escape without escape key
