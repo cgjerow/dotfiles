@@ -51,6 +51,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
 
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -98,7 +99,7 @@ filetype plugin indent on    " required
 " {{{
 " 
 " Write and Return to File Explorer
-command! W w | Rexplore
+command! -nargs=+ W Gw | Gcommit -m <q-args> 
 " SFDX Write and Compile 
 command! Wdx w | !sfdx force:source:deploy -p %
 " Escape without escape key
