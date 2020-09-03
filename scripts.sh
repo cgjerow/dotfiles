@@ -1,7 +1,7 @@
 # Git commands
 function gc() {
 	read message
-	git commit -m message
+	git commit -m $message
 }
 
 function gs() {
