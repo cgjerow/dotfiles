@@ -14,5 +14,9 @@ function gl() {
 
 # Basic commands
 function l() {
+	ls -a
+}
+
+function ll() {
 	ls -la
 }
