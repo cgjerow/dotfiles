@@ -130,6 +130,9 @@ colorscheme abstract
 " Ignore case by default
 set ignorecase
 
+" Break line at full word
+set linebreak
+
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
