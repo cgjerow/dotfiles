@@ -12,8 +12,12 @@ function gl() {
 }
 
 # Basic commands
+function rsrc () {
+    source ~/.zshrc
+}
+
 function l() {
-	ls -Ca | less -F
+	ls -Ca 
 }
 
 function ll() {
