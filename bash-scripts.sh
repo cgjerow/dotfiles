@@ -21,7 +21,7 @@ function l() {
 }
 
 function ll() {
-	ls -Cla | less -F
+	ls -Cla | less
 }
 
 function cc() {
