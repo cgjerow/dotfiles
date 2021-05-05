@@ -1,3 +1,4 @@
+echo "Upstall of Homebrew in progress..."
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
@@ -31,7 +32,7 @@ cask-upstall()
     echo "Upstall of $1 completed."
 }
 
-for package in node python tmux yarn w3m
+for package in node python tmux yarn w3m htop
 do
     brew-upstall $package
 done
@@ -47,8 +48,11 @@ vim +PluginInstall +PluginClean +qall
 
 
 echo "Linking dotfiles to home directory..."
-ln -sf ~/dotfiles/.zshrc ~/.zshrc && source ~/.zshrc
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/zshrc ~/.zshrc && source ~/.zshrc
+ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+
+echo "Sourcing .zshrc"
+source ~/.zshrc
 
 echo "Done!"

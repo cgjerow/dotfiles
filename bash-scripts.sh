@@ -13,11 +13,11 @@ function gl() {
 
 # Basic commands
 function l() {
-	ls -Ca | less -R
+	ls -Ca | less -F
 }
 
 function ll() {
-	ls -Cla | less -R
+	ls -Cla | less -F
 }
 
 function cc() {

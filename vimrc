@@ -9,7 +9,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'vim-airline/vim-airline'
-" Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 call vundle#end()            " required
 """ end vundle
 
