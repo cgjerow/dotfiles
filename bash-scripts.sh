@@ -13,13 +13,18 @@ function gl() {
 
 # Basic commands
 function l() {
-	ls -a
+	ls -Ca | less -R
 }
 
 function ll() {
-	ls -la
+	ls -Cla | less -R
 }
 
 function cc() {
 	g++ $1 $2
+}
+
+source ~/dotfiles/tmux-setup.sh
+function ts() {
+	tmuxSession $1
 }

@@ -6,25 +6,17 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'sheerun/vim-polyglot'
 Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'tpope/vim-fugitive'
 call vundle#end()            " required
 """ end vundle
 
 
 
 " line enables syntax highlighting by default.
-syntax on
-" colorscheme challenger_deep
-" colorscheme 256_noir 
-" colorscheme murphy
-" colorscheme old_fashioned
-" colorscheme Base2Tone_DesertDark
+" colorscheme old_fashioned 
 " colorscheme dogrun
 colorscheme abstract
 
@@ -33,6 +25,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+syntax on
 set linebreak           " Break line at full word
 set showcmd		" Show (partial) command in status line.
 set number		" Show line number
@@ -45,5 +38,5 @@ let NERDTreeShowHidden=1    " Show hidden files in NERDTree
 
 
 " Custom Mappings
-let maploader = "," " map leader to comma
+let mapleader = "," " map leader to comma
 map <C-k> <C-E>
