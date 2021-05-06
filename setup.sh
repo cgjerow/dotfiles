@@ -48,9 +48,10 @@ vim +PluginInstall +PluginClean +qall
 
 
 echo "Linking dotfiles to home directory..."
-ln -sf ~/dotfiles/zshrc ~/.zshrc && source ~/.zshrc
-ln -sf ~/dotfiles/vimrc ~/.vimrc
-ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+echo "TODO: add prefix to identify files that should be symlinked into home directory"
+ln -sf ~/dotfiles/shell/zshrc ~/.zshrc && source ~/.zshrc
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 echo "Sourcing .zshrc"
 source ~/.zshrc

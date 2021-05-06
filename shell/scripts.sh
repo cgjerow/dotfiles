@@ -28,7 +28,7 @@ function cc() {
 	g++ $1 $2
 }
 
-source ~/dotfiles/tmux-setup.sh
+source ~/dotfiles/tmux/setup.sh
 function ts() {
 	tmuxSession $1
 }
