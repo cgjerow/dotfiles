@@ -12,7 +12,7 @@ function gl() {
 }
 
 # Basic commands
-function rsrc () {
+function rsrc() {
     source ~/.zshrc
 }
 
@@ -31,4 +31,41 @@ function cc() {
 source ~/dotfiles/tmux/setup.sh
 function ts() {
 	tmuxSession $1
+}
+
+
+function has-theme() {
+	base16-manager list-themes | grep $THEME$1
+}
+
+function dark() {
+	export BACKGROUND="dark"
+	if has-theme "-dark"
+	then
+		base16-manager set $THEME-dark
+	else
+		base16-manager set $THEME
+	fi
+}
+
+function light() {
+	export BACKGROUND="light"
+	if has-theme "-light"
+	then
+		base16-manager set $THEME-light
+	else
+		base16-manager set $THEME
+	fi
+}
+
+function theme() {
+	export THEME=$1 
+	if $BACKGROUND = "light"
+		then light
+		else dark
+	fi
+}
+
+function themes() {
+	base16-manager list-themes | less
 }
