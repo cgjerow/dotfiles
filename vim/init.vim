@@ -16,12 +16,15 @@ let mapleader = "," " map leader to comma
 
 set number
 set relativenumber
+set encoding=utf-8
+scriptencoding utf-8
 set list
-set listchars=eol:↩
+" set listchars=eol:↩,space:·,tab:··
+set listchars=space:·,tab:··
 
 set wrapmargin=8 " wrap lines when comeing within n characters from side
 set linebreak " Break line at full word
-set showbreak=↪\ ...\  " show eliipsis at breaking
+set showbreak=\ \ \ \ ↪\ \  " show eliipsis at breaking
 
 set ignorecase " Do case insensitive matching
 set hlsearch " Highlight matches for search 
