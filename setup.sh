@@ -13,10 +13,10 @@ brew-upstall ()
     if brew ls --versions $1 > /dev/null
     then
         echo "Upgrade of $1 in progress..."
-	brew upgrade $1
+	HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade $1
     else
         echo "Install of $1 in progress..."
-	brew install $1 
+	HOMEBREW_NO_AUTO_UPDATE=1 brew install $1 
     fi
     echo "Upstall of $1 completed."
 }
@@ -32,6 +32,10 @@ cask-upstall()
     fi
     echo "Upstall of $1 completed."
 }
+
+
+brew install --HEAD luajit # required for neovim development download
+brew install --HEAD neovim
 
 for tap in chrokh/tap
 do
@@ -49,22 +53,22 @@ do
 done
 
 base16-manager install chriskempson/base16-shell
-base16-manager install chriskempson/base16-vim
-bae16-manager clean
+base16-manager clean
 
 python3 -m pip install --upgrade pip
 pip3 install base16-shell-preview
 
-echo "Updating vim vundles..."
-[ -d 	"~/.vim/bundle/Vundle.vim" ] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim # clone if directory doesn't exist
-vim +PluginInstall +PluginClean +qall
 
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim --headless +PlugUpgrade +PlugUpdate +PlugClean +qa
 
 echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
+mkdir ~/.config/nvim
 ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
-ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
 
 echo "Sourcing .zshrc"
 source ~/.zshrc

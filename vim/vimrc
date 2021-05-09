@@ -17,9 +17,9 @@
 """ Utilitarianisms
 	syntax on
 
-	"set encoding=utf8
-	"let base16colorspace=256
-	"set t_Co=256
+	set encoding=utf8
+	let base16colorspace=256
+	set t_Co=256
 	source ~/.vim/colorscheme.vim
 	
 	set wrap " turn on line wrapping
