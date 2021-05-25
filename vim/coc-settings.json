@@ -1,0 +1,7 @@
+{
+    "eslint.enable": true,
+    "eslint.autoFixOnSave": true,
+    "suggest.noselect":false,
+    "coc.preferences.formatOnSaveFiletypes": ["typescript"],
+    "coc.preferences.jumpCommand": "tab drop"
+}

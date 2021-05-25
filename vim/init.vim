@@ -1,19 +1,30 @@
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin()
+set nocompatible
+filetype off
 
-" Make sure you use single quotes
+set wildignore+=**/node_modules/*
+set wildignore+=**/.git/*
+set wildignore+=**/dist/*
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'preservim/nerdtree'
+call plug#begin("~/.config/nvim/plugged")
+
+"Plug 'vim-airline/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 
 call plug#end()
 
 
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
+autocmd FileType * let b:coc_pairs_disabled = ["<"]
 
-let mapleader = "," " map leader to comma
+let mapleader = " " " map leader to space
 
+set path+=**
 set number
 set relativenumber
 set encoding=utf-8
@@ -27,10 +38,30 @@ set linebreak " Break line at full word
 set showbreak=\ \ \ \ ↪\ \  " show eliipsis at breaking
 
 set ignorecase " Do case insensitive matching
-set hlsearch " Highlight matches for search 
+" set hlsearch " Highlight matches for search 
+
+" Always show the status line
+set laststatus=2
+
+" Allow copy and paste from system clipboard
+set clipboard=unnamed
+
+" Spellcheck for features and markdown
+au BufRead,BufNewFile *.md setlocal spell
 
 map <C-j> 3<C-E>
 map <C-k> 3<C-Y>
 
-" NERDTree
-let NERDTreeShowHidden=1    " Show hidden files in NERDTree
+
+" Use <Tab> and <S-Tab> to navigate the completion list:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+set shiftwidth=4 tabstop=4 softtabstop=2 expandtab
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab

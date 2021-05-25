@@ -69,6 +69,7 @@ mkdir ~/.config/nvim
 ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/vim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 echo "Sourcing .zshrc"
 source ~/.zshrc
