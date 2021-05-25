@@ -11,11 +11,13 @@ export BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
 
 source ~/dotfiles/shell/scripts.sh
 
+export THEME="bright"
 #export THEME="atlas"
-export THEME="heetch"
+#export THEME="heetch"
 #export THEME="irblack"
 #export THEME="black-metal"
 #export THEME="black-metal-immortal"
+#export THEME="black-metal-bathory"
 #export THEME="chalk"
 #export THEME="porple"
 #export THEME="outrun-dark"
