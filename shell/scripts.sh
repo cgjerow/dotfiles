@@ -16,6 +16,14 @@ function rsrc() {
     source ~/.zshrc
 }
 
+function vi() {
+    nvim "$@"
+}
+
+function vim() {
+    nvim "$@"
+}
+
 function l() {
 	ls -Ca 
 }
