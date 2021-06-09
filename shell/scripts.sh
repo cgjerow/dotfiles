@@ -77,3 +77,15 @@ function theme() {
 function themes() {
 	base16-manager list-themes | less
 }
+
+function yt() {
+    args=`getopt a "$@"`
+    echo [ "$args" == "-a --" ]
+    echo "${args[0]}"
+    if [ false ]
+    then
+        yarn test
+    else
+        yarn test --onlyChanged
+    fi
+}

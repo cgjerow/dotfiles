@@ -10,7 +10,11 @@ export BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+export NVM_DIR="$HOME/.nvm"
+
 source ~/dotfiles/shell/scripts.sh
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
 export THEME="bright"
 #export THEME="atlas"
@@ -37,3 +41,14 @@ export THEME="bright"
 #export THEME="outrun-dark"
 
 dark
+##//extend-cli begin
+
+# Path to your oh-my-zsh installation.
+export EXTEND_CLI="/Users/connorjerow/.extend-cli"
+
+# Setup the alias
+alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
+
+# User configuration
+
+##//extend-cli end
