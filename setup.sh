@@ -54,6 +54,7 @@ done
 
 brew cleanup
 
+
 base16-manager install chriskempson/base16-shell
 base16-manager clean
 
