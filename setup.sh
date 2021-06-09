@@ -42,12 +42,12 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn w3m htop base16-manager
+for package in nvm node python tmux yarn w3m htop base16-manager
 do
     brew-upstall $package
 done
 
-for cask in google-chrome iglance
+for cask in iglance docker # google-chrome 
 do
     cask-upstall $cask --cask
 done
