@@ -47,7 +47,7 @@ do
     brew-upstall $package
 done
 
-for cask in iglance docker # google-chrome 
+for cask in postman iglance docker # google-chrome 
 do
     cask-upstall $cask --cask
 done
