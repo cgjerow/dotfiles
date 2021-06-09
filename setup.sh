@@ -42,15 +42,17 @@ do
     brew tap $tap
 done
 
-for package in nvm node python tmux yarn w3m htop base16-manager
+for package in nvm node python tmux yarn awscli w3m htop base16-manager
 do
     brew-upstall $package
 done
 
-for cask in postman iglance docker # google-chrome 
+for cask in postman iglance docker google-chrome 
 do
     cask-upstall $cask --cask
 done
+
+brew cleanup
 
 base16-manager install chriskempson/base16-shell
 base16-manager clean
