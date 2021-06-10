@@ -42,7 +42,7 @@ do
     brew tap $tap
 done
 
-for package in nvm node python tmux yarn awscli w3m htop base16-manager
+for package in nvm node python tmux yarn awscli newman w3m htop base16-manager
 do
     brew-upstall $package
 done
