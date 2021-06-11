@@ -50,6 +50,8 @@ au BufRead,BufNewFile *.md setlocal spell
 
 map <C-j> 3<C-E>
 map <C-k> 3<C-Y>
+map j gj
+map k gk
 
 
 " Use <Tab> and <S-Tab> to navigate the completion list:
