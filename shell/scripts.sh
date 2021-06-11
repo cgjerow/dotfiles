@@ -89,3 +89,23 @@ function yt() {
         yarn test --onlyChanged
     fi
 }
+
+
+function ghpr() {
+    gh pr create & gh pr view --json title,url
+    success=$?
+
+    pr_json=`gh pr view --json title,url 2>&1`
+    echo $pr_json
+
+    title=`node -pe 'JSON.parse(process.argv[1]).title' $pr_json 2>&1`
+    echo $title
+    url=`node -pe 'JSON.parse(process.argv[1]).url' $pr_json 2>&1`
+    echo $url
+
+    message="Connor has a new PR available for review:\n\t *$title* \n\t$url"
+
+    if [ $success ] 
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" https://hooks.slack.com/services/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 || echo "Create PR failed"
+}
+
