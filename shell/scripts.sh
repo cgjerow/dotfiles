@@ -16,6 +16,10 @@ function rsrc() {
     source ~/.zshrc
 }
 
+function e() {
+    nvim "$@"
+}
+
 function vi() {
     nvim "$@"
 }
