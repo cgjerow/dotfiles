@@ -17,7 +17,7 @@ function rsrc() {
 }
 
 function e() {
-    nvim "$@"
+    $EDITOR "$@"
 }
 
 function vi() {
