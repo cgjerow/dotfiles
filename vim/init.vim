@@ -51,7 +51,6 @@ au BufRead,BufNewFile *.md setlocal spell
 map <C-j> 3<C-E>
 map <C-k> 3<C-Y>
 
-
 " Use <Tab> and <S-Tab> to navigate the completion list:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
