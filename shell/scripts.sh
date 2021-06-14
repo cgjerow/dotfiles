@@ -122,3 +122,12 @@ function slackme() {
     curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" https://hooks.slack.com/services/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 
         
 }
+
+
+function assume() {
+    if [ -n "$1" ]; then
+        ec aws creds assume -e $1
+    else
+        $(assume partnerssandbox)
+    fi
+}
