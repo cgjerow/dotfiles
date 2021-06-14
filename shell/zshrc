@@ -1,6 +1,8 @@
 export PATH=$HOME/.toolbox/bin:$PATH
 export TERM='xterm-256color'
 export EDITOR='nvim'
+export SLACK_SIGNING_SECRET=d59b0626e2e76806a7cf8b273fd4a014
+export SLACK_APP_TOKEN=xoxb-507737195856-2167124690578-xOuSgrRCxykueDUswwkWZJCL
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm, Node Version Manager
@@ -16,7 +18,6 @@ source ~/dotfiles/shell/scripts.sh
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
-export THEME="xcode-dusk"
 #export THEME="bright"
 #export THEME="atlas"
 #export THEME="heetch"
@@ -31,7 +32,7 @@ export THEME="xcode-dusk"
 #export THEME="rebecca"
 #export THEME="greenscreen"
 #export THEME="synth-midnight-dark" # sweeet
-#export THEME="flat"
+export THEME="flat"
 #export THEME="unikitty-light"
 #export THEME="unikitty-dark"
 #export THEME="harmonic-dark"
