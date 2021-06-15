@@ -112,9 +112,9 @@ function ghpr() {
 
     message="Connor has a new PR available for review:\n\t *$title* \n\t$url"
 
-    if [ $success ] 
+    if [ $success ]; then 
         curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" https://hooks.slack.com/services/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 || echo "Create PR failed"
-        
+    fi
 }
 
 function slackme() {
@@ -124,10 +124,16 @@ function slackme() {
 }
 
 
+# yarn
+
+alias yarn='nvm use; yarn'
+
+# AWS
+
 function assume() {
     if [ -n "$1" ]; then
         ec aws creds assume -e $1
     else
-        $(assume partnerssandbox)
+        ec aws creds assume -e partnerssandbox
     fi
 }
