@@ -3,6 +3,7 @@ export TERM='xterm-256color'
 export EDITOR='nvim'
 export SLACK_SIGNING_SECRET=d59b0626e2e76806a7cf8b273fd4a014
 export SLACK_APP_TOKEN=xoxb-507737195856-2167124690578-xOuSgrRCxykueDUswwkWZJCL
+setopt +o nomatch
 
 
 # NVM

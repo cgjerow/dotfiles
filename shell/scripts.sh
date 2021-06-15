@@ -16,6 +16,8 @@ function rsrc() {
     source ~/.zshrc
 }
 
+alias regrep='grep -Er --exclude=*~ --exclude=*.snap --exclude-dir=.git --exclude-dir=node_modules'
+
 function e() {
     $EDITOR "$@"
 }
