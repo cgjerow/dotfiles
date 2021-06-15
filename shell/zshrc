@@ -4,19 +4,22 @@ export EDITOR='nvim'
 export SLACK_SIGNING_SECRET=d59b0626e2e76806a7cf8b273fd4a014
 export SLACK_APP_TOKEN=xoxb-507737195856-2167124690578-xOuSgrRCxykueDUswwkWZJCL
 
+
+# NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm, Node Version Manager
+export NVM_DIR="$HOME/.nvm"
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+
+
+# THEME
 export BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-export NVM_DIR="$HOME/.nvm"
-
-source ~/dotfiles/shell/scripts.sh
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
 #export THEME="bright"
 #export THEME="atlas"
@@ -42,6 +45,27 @@ export THEME="flat"
 #export THEME="macintosh"
 #export THEME="outrun-dark"
 
+
+
+
+##//extend-cli begin
+
+# Path to your oh-my-zsh installation.
+export EXTEND_CLI="/Users/connorjerow/.extend-cli"
+
+# Setup the alias
+alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
+
+# User configuration
+
+##//extend-cli end
+
+
+
+
+source ~/dotfiles/shell/scripts.sh
+
+# Start actions that require custom scripts or aliases
 dark
 ##//extend-cli begin
 
