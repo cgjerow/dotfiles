@@ -10,6 +10,8 @@ export BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source ~/dotfiles/shell/scripts.sh
 
 export THEME="bright"

@@ -42,7 +42,7 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn w3m htop base16-manager
+for package in node python tmux yarn w3m htop base16-manager zsh-autosuggestions
 do
     brew-upstall $package
 done
