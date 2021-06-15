@@ -62,6 +62,7 @@ export EXTEND_CLI="/Users/connorjerow/.extend-cli"
 alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
 
 # User configuration
+export AWS_DEFAULT_PROFILE=partnerssandbox
 
 ##//extend-cli end
 
