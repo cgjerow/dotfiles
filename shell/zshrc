@@ -25,7 +25,7 @@ bindkey '^ ' autosuggest-accept
 
 
 
-#export THEME="bright"
+export THEME="bright"
 #export THEME="atlas"
 #export THEME="heetch"
 #export THEME="irblack"
@@ -39,7 +39,7 @@ bindkey '^ ' autosuggest-accept
 #export THEME="rebecca"
 #export THEME="greenscreen"
 #export THEME="synth-midnight-dark" # sweeet
-export THEME="flat"
+#export THEME="flat"
 #export THEME="unikitty-light"
 #export THEME="unikitty-dark"
 #export THEME="harmonic-dark"
