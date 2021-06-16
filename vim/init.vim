@@ -187,6 +187,10 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType * let b:coc_pairs_disabled = ["<"]
 
+" Coc Colors!
+hi! CocErrorSign guifg=#d1666a
+hi! CocWarningSign guifg=#d1666a
+
 
 
 " General Settings 
