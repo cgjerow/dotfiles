@@ -1,8 +1,6 @@
 export PATH=$HOME/.toolbox/bin:$PATH
 export TERM='xterm-256color'
 export EDITOR='nvim'
-export SLACK_SIGNING_SECRET=d59b0626e2e76806a7cf8b273fd4a014
-export SLACK_APP_TOKEN=xoxb-507737195856-2167124690578-xOuSgrRCxykueDUswwkWZJCL
 setopt +o nomatch
 
 
@@ -53,6 +51,13 @@ export THEME="flat"
 
 
 
+source ~/dotfiles/shell/scripts.sh
+
+# Start actions that require custom scripts or aliases
+dark
+
+
+# Work Settings
 
 ##//extend-cli begin
 
@@ -64,24 +69,5 @@ alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
 
 # User configuration
 export AWS_DEFAULT_PROFILE=partnerssandbox
-
-##//extend-cli end
-
-
-
-
-source ~/dotfiles/shell/scripts.sh
-
-# Start actions that require custom scripts or aliases
-dark
-##//extend-cli begin
-
-# Path to your oh-my-zsh installation.
-export EXTEND_CLI="/Users/connorjerow/.extend-cli"
-
-# Setup the alias
-alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
-
-# User configuration
 
 ##//extend-cli end
