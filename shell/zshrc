@@ -25,7 +25,7 @@ bindkey '^ ' autosuggest-accept
 
 
 
-export THEME="bright"
+#export THEME="bright"
 #export THEME="atlas"
 #export THEME="heetch"
 #export THEME="irblack"
@@ -48,6 +48,7 @@ export THEME="bright"
 #export THEME="papercolor-light"
 #export THEME="macintosh"
 #export THEME="outrun-dark"
+export THEME="material-darker"
 
 
 
