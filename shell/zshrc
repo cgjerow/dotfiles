@@ -52,10 +52,6 @@ export THEME="material-darker"
 
 
 
-source ~/dotfiles/shell/scripts.sh
-
-# Start actions that require custom scripts or aliases
-dark
 
 
 # Work Settings
@@ -70,5 +66,9 @@ alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
 
 # User configuration
 export AWS_DEFAULT_PROFILE=partnerssandbox
+
+source ~/dotfiles/shell/scripts.sh
+# Start actions that require custom scripts or aliases
+dark
 
 ##//extend-cli end
