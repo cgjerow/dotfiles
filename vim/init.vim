@@ -1,5 +1,6 @@
 set nocompatible
 set hidden
+set foldmethod=syntax
 
 filetype off
 
