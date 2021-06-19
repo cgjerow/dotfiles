@@ -33,6 +33,7 @@ bindkey '^ ' autosuggest-accept
 #export THEME="black-metal-immortal"
 #export THEME="black-metal-bathory"
 #export THEME="chalk"
+export THEME="nord"
 #export THEME="porple"
 #export THEME="outrun-dark"
 #export THEME="porple"
@@ -48,7 +49,7 @@ bindkey '^ ' autosuggest-accept
 #export THEME="papercolor-light"
 #export THEME="macintosh"
 #export THEME="outrun-dark"
-export THEME="material-darker"
+#export THEME="material-darker"
 
 
 
