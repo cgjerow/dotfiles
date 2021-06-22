@@ -25,7 +25,7 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 call plug#end()
 
 " Coc Extensions
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
+let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-json', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
 
 " Coc Setup
 
