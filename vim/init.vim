@@ -214,9 +214,6 @@ set showbreak=\ \ \ \ ↪\ \  " show eliipsis at breaking
 
 set ignorecase " Do case insensitive matching
 
-" Always show the status line
-set laststatus=2
-
 " Allow copy and paste from system clipboard
 set clipboard=unnamed
 
