@@ -1,53 +1,15 @@
 export PATH=$HOME/.toolbox/bin:$PATH
 export TERM='xterm-256color'
+export MY_SCRIPTS=~/dotfiles/shell
 export EDITOR='nvim'
 setopt +o nomatch
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-precmd() { vcs_info }
-
-zstyle ':vcs_info:git:*' formats '[%b]'
-
-setopt prompt_subst
-export PROMPT='connor:%B%1~%b${vcs_info_msg_0_} '
-
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm, Node Version Manager
 
-export BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-            eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 
-source ~/dotfiles/shell/scripts.sh
-
-export THEME="bright"
-#export THEME="atlas"
-#export THEME="heetch"
-#export THEME="irblack"
-#export THEME="black-metal"
-#export THEME="black-metal-immortal"
-#export THEME="black-metal-bathory"
-#export THEME="chalk"
-#export THEME="porple"
-#export THEME="outrun-dark"
-#export THEME="porple"
-#export THEME="rebecca"
-#export THEME="greenscreen"
-#export THEME="synth-midnight-dark" # sweeet
-#export THEME="flat"
-#export THEME="unikitty-light"
-#export THEME="unikitty-dark"
-#export THEME="harmonic-dark"
-#export THEME="harmonic-light"
-#export THEME="papercolor-dark"
-#export THEME="papercolor-light"
-#export THEME="macintosh"
-#export THEME="outrun-dark"
-
-dark
+source $MY_SCRIPTS/scripts.sh
+source $MY_SCRIPTS/prompt.sh
+#source $MY_SCRIPTS/base16.sh
