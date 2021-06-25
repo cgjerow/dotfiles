@@ -21,6 +21,7 @@ tmuxSession ()
 		tmux send-keys htop C-m
 
 		tmux selectw -t $session:main
+        tmux selectp -t 1
 		tmux selectp -t 0
 	fi
 	tmux a -t $session
