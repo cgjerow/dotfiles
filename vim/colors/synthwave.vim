@@ -37,6 +37,7 @@ hi Normal guifg=#ffffff guibg=#000000 guisp=#000000 gui=NONE ctermfg=15 ctermbg=
 "hi CTagsClass -- no settings --
 "hi clear -- no settings --
 hi IncSearch guifg=#ffffff guibg=#d500ff guisp=#d500ff gui=NONE ctermfg=15 ctermbg=165 cterm=NONE
+hi CocHighlightText guifg=#ffffff guibg=#ad00bd guisp=#ad00bd gui=NONE ctermfg=15 ctermbg=5 cterm=NONE
 hi WildMenu guifg=NONE guibg=#A1A6A8 guisp=#A1A6A8 gui=NONE ctermfg=NONE ctermbg=248 cterm=NONE
 hi SignColumn guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=60 cterm=NONE
 hi SpecialComment guifg=#c051d3 guibg=NONE guisp=NONE gui=NONE ctermfg=164 ctermbg=0 cterm=NONE
