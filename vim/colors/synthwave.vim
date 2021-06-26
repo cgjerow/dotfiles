@@ -59,6 +59,7 @@ hi StorageClass guifg=#536991 guibg=NONE guisp=NONE gui=bold ctermfg=214 ctermbg
 hi Todo guifg=#000000 guibg=#00c4ff guisp=#00c4ff gui=NONE ctermfg=0 ctermbg=45 cterm=NONE
 hi Special guifg=#984aff guibg=NONE guisp=NONE gui=NONE ctermfg=135 ctermbg=NONE cterm=NONE
 hi LineNr guifg=#ff00bb guibg=NONE guisp=NONE gui=NONE ctermfg=199 ctermbg=NONE cterm=NONE
+hi CursorLineNr guifg=#ff00bb guibg=NONE guisp=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE
 hi StatusLine guifg=#000000 guibg=#ff00bb guisp=#ff00bb gui=bold ctermfg=NONE ctermbg=199 cterm=bold
 hi Label guifg=#c051d3 guibg=NONE guisp=NONE gui=bold ctermfg=164 ctermbg=NONE cterm=bold
 hi PMenuSel guifg=#ffffff guibg=#891a8f guisp=#891a8f gui=NONE ctermfg=15 ctermbg=90 cterm=NONE
