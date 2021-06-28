@@ -237,6 +237,7 @@ au BufRead,BufNewFile *.md setlocal spell
 
 map <C-j> 3<C-E>
 map <C-k> 3<C-Y>
+nmap <C-n> :noh<CR>
 
 
 " CtrlP Settings
