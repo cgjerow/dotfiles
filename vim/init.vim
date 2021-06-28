@@ -13,17 +13,19 @@ set wildignore+=**/dist/*
 
 call plug#begin("~/.config/nvim/plugged")
 
-"Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'jremmen/vim-ripgrep'
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
-Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 
 call plug#end()
+
+
+" Other scripts
+source ~/dotfiles/vim/theme.vim
+
 
 " Coc Extensions
 let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-json', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
