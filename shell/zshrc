@@ -4,12 +4,17 @@ export EDITOR='nvim'
 export TERM=xterm-16color
 setopt +o nomatch
 
+
+
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm, Node Version Manager
 
+
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
+autoload -Uz compinit && compinit -i # completion such as git branches
+
 
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
-#source $MY_SCRIPTS/base16.sh
