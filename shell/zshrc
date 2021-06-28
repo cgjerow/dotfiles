@@ -1,5 +1,4 @@
 export PATH=$HOME/.toolbox/bin:$PATH
-export TERM='xterm-256color'
 export MY_SCRIPTS=~/dotfiles/shell
 export EDITOR='nvim'
 setopt +o nomatch
