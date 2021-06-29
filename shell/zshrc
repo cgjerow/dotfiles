@@ -28,7 +28,6 @@ autoload -Uz compinit && compinit -i # completion such as git branches
 
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
-<<<<<<< HEAD
 source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##//extend-cli end
