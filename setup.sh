@@ -37,12 +37,13 @@ cask-upstall()
 brew install --HEAD luajit # required for neovim development download
 brew install --HEAD neovim
 
+# personal
 for tap in chrokh/tap
 do
     brew tap $tap
 done
 
-for package in nvm node python tmux yarn awscli newman w3m htop base16-manager ngrok zsh-autosuggestions fzf ripgrep
+for package in node python tmux yarn w3m htop base16-manager zsh-autosuggestions zsh-syntax-highlighting ripgrep
 do
     brew-upstall $package
 done
@@ -50,6 +51,13 @@ done
 for cask in postman iglance docker google-chrome 
 do
     cask-upstall $cask --cask
+done
+
+
+# work
+for package in nvm awscli newman ngrok fzf
+do
+    brew-upstall $package
 done
 
 brew cleanup
