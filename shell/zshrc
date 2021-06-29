@@ -2,6 +2,7 @@ export PATH=$HOME/.toolbox/bin:$PATH
 export MY_SCRIPTS=~/dotfiles/shell
 export EDITOR='nvim'
 export TERM=xterm-16color
+export HOMEBREW_PREFIX=$(brew --prefix)
 setopt +o nomatch
 
 
@@ -11,7 +12,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 autoload -Uz compinit && compinit -i # completion such as git branches
 
