@@ -184,7 +184,7 @@ function! StatusDiagnostic() abort
   endif
   return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 endfunction
-set statusline=%{StatusDiagnostic()}
+set statusline=%{StatusDiagnostic()}\ %<%=%F
 
 " Mappings for CoCList
 " Show all diagnostics.
