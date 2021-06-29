@@ -42,7 +42,7 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn w3m htop base16-manager zsh-autosuggestions ripgrep
+for package in node python tmux yarn w3m htop base16-manager zsh-autosuggestions zsh-syntax-highlighting ripgrep
 do
     brew-upstall $package
 done
