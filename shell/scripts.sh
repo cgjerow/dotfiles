@@ -102,3 +102,5 @@ function assume() {
         ec aws creds assume -e partnerssandbox
     fi
 }
+
+alias ecl='ec aws creds login; ec yarn login; assume'
