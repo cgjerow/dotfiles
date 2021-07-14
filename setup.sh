@@ -81,7 +81,6 @@ ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/vim/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -sf ~/dotfiles/vim/colors ~/.config/nvim/colors
 
 echo "Sourcing .zshrc"
 source ~/.zshrc
