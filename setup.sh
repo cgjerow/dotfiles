@@ -39,7 +39,7 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn luajit neovim w3m htop base16-manager zsh-autosuggestions zsh-syntax-highlighting ripgrep
+for package in node python tmux yarn luajit neovim w3m htop zsh-autosuggestions zsh-syntax-highlighting ripgrep
 do
     brew-upstall $package
 done
@@ -58,13 +58,7 @@ done
 
 brew cleanup
 
-
-base16-manager install chriskempson/base16-shell
-base16-manager clean
-
 python3 -m pip install --upgrade pip
-pip3 install base16-shell-preview
-
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
