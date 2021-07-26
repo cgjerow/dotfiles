@@ -1,51 +1,17 @@
 # Git commands
-function gc() {
-	git commit -m $1
-}
-
-function gs() {
-	git status
-}
-
-function gl() {
-	git log --all --graph --decorate --oneline
-}
+alias gc='git commit -m'
+alias gs='git status'
+alias gl='git log --all --graph --decorate --oneline'
 
 # Basic commands
-function rsrc() {
-    source ~/.zshrc
-}
-
-alias regrep='grep -Er --exclude=*~ --exclude=*.snap --exclude-dir=.git --exclude-dir=node_modules'
-
-function e() {
-    $EDITOR "$@"
-}
-
-function vi() {
-    nvim "$@"
-}
-
-function vim() {
-    nvim "$@"
-}
-
-function l() {
-	ls -Ca 
-}
-
-function ll() {
-	ls -Cla | less
-}
-
-function cc() {
-	g++ $1 $2
-}
+alias rsrc='source ~/.zshrc'
+alias e="$EDITOR"
+alias vi='e'
+alias vim='e'
+alias ll='ls -la'
 
 source ~/dotfiles/tmux/setup.sh
-function ts() {
-	tmuxSession $1
-}
+alias ts='tmuxSession'
 
 function yt() {
     args=`getopt a "$@"`
