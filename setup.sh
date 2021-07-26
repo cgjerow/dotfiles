@@ -33,16 +33,12 @@ cask-upstall()
     echo "Upstall of $1 completed."
 }
 
-
-brew install --HEAD luajit # required for neovim development download
-brew install --HEAD neovim
-
 for tap in chrokh/tap
 do
     brew tap $tap
 done
 
-for package in node python tmux yarn w3m htop base16-manager zsh-autosuggestions zsh-syntax-highlighting ripgrep
+for package in node python tmux yarn luajit neovim w3m htop base16-manager zsh-autosuggestions zsh-syntax-highlighting ripgrep
 do
     brew-upstall $package
 done
