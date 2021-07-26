@@ -7,7 +7,7 @@ filetype off
 
 let mapleader = "," 
 
-set wildignore+=**/node_modules/*
+"set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 set wildignore+=**/dist/*
 
