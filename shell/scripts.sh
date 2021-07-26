@@ -11,4 +11,4 @@ alias vim='e'
 alias ll='ls -la'
 
 source ~/dotfiles/tmux/setup.sh
-alias ts='tmuxSession'
+alias tms='tmuxSession'
