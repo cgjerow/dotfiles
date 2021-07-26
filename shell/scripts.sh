@@ -1,7 +1,5 @@
 # Git commands
-function gc() {
-	git commit -m $1
-}
+alias gc='git commit -m '
 
 function gs() {
 	git status
