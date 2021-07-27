@@ -33,12 +33,6 @@ function ghpr() {
     fi
 }
 
-function slackme() {
-    message="Hello hello Connor"
-    curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$message\"}" https://hooks.slack.com/services/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 
-        
-}
-
 
 # yarn
 
