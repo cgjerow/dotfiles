@@ -54,4 +54,4 @@ function assume() {
     fi
 }
 
-alias ecl='ec aws creds login; ec yarn login; assume'
+alias ecl='ec aws creds login; ec yarn login; assume; assume dev'
