@@ -2,6 +2,7 @@ set nocompatible
 set hidden
 set foldmethod=syntax
 set foldlevelstart=99
+set maxmempattern=4000
 
 filetype off
 
