@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'jremmen/vim-ripgrep'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+Plug 'stefandtw/quickfix-reflector.vim'
 
 call plug#end()
 
