@@ -10,6 +10,9 @@ alias vi='e'
 alias vim='e'
 alias ll='ls -la'
 
+# Search
+alias rg='rg -S'
+
 source ~/dotfiles/tmux/setup.sh
 alias tms='tmuxSession'
 
