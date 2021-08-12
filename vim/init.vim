@@ -247,7 +247,7 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<cr>'],
     \ }
 nnoremap <silent> <C-b> :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = 'build'
+let g:ctrlp_custom_ignore = 'build\|node_modules\|git'
 let g:ctrlp_max_files = 0
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
