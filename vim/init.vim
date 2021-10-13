@@ -225,7 +225,6 @@ scriptencoding utf-8
 set list
 " set listchars=eol:↩,space:·,tab:··
 set listchars=space:·,tab:··
-
 set linebreak " Break line at full word
 set showbreak=\ \ \ \ ↪\ \  " show eliipsis at breaking
 
@@ -254,4 +253,4 @@ let g:ctrlp_max_files = 0
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 set shiftwidth=4 tabstop=4 softtabstop=2 expandtab
-autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+autocmd FileType typescript,javascript,json setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
