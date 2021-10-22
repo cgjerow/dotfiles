@@ -17,12 +17,13 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'jremmen/vim-ripgrep'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'stefandtw/quickfix-reflector.vim'
 
 call plug#end()
+
+" Plug 'jremmen/vim-ripgrep' not currently working
 
 
 " Other scripts
@@ -30,7 +31,7 @@ source ~/dotfiles/vim/theme.vim
 
 
 " Coc Extensions
-let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-json', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
+let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-json', 'coc-java', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
 
 " Coc Setup
 
