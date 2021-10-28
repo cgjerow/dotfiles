@@ -128,8 +128,8 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xnoremap <leader>a  <Plug>(coc-codeaction-selected)
-nnoremap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
+nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ba <Plug>(coc-codeaction)
