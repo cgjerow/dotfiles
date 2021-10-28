@@ -17,12 +17,13 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'jremmen/vim-ripgrep'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'stefandtw/quickfix-reflector.vim'
 
 call plug#end()
+
+" Plug 'jremmen/vim-ripgrep' not currently working
 
 
 " Other scripts
@@ -31,7 +32,7 @@ source ~/dotfiles/vim/theme.vim
 
 " Coc Extensions
 let g:coc_node_path = '~/.nvm/versions/node/v16.3.0/bin/node'
-let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-json', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
+let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-json', 'coc-java', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
 
 " Coc Setup
 
@@ -128,11 +129,11 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xnoremap <leader>a  <Plug>(coc-codeaction-selected)
+nnoremap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ba <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
