@@ -243,6 +243,9 @@ map <C-j> 3<C-E>
 map <C-k> 3<C-Y>
 nmap <C-n> :noh<CR>
 
+" netrw
+let g:netrw_list_hide= '.*\.swp$,.DS_Store,*/tmp/*,*.so,*.swp,*.zip,*.git,.git/,^\.\.\=/\=$'
+let g:netrw_banner=0
 
 " CtrlP Settings
 let g:ctrlp_prompt_mappings = {
