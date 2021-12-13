@@ -32,7 +32,7 @@ source ~/dotfiles/vim/theme.vim
 
 " Coc Extensions
 let g:coc_node_path = '~/.nvm/versions/node/v16.3.0/bin/node'
-let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-java', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
+let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-java', 'coc-rls', 'coc-prettier', 'coc-eslint' , 'coc-pairs']
 
 " Coc Setup
 
