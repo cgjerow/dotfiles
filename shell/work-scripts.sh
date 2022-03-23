@@ -1,3 +1,6 @@
+export DEFAULT_SANDBOX=partnerssandbox
+export DEFAULT_SERVICE=instore
+
 function yt() {
     args=`getopt a "$@"`
     echo [ "$args" == "-a --" ]
@@ -44,7 +47,7 @@ function assume() {
     if [ -n "$1" ]; then
         ec aws creds assume -e $1
     else
-        ec aws creds assume -e partnerssandbox
+        ec aws creds assume -e $DEFAULT_SANDBOX
     fi
 }
 
@@ -52,7 +55,11 @@ function yarndeploy() {
     if [ -n "$2" ]; then
         yarn deploy -r "$1" -e "$2" -p "$2"
     else
-        yarn deploy -r "$1" -e partnerssandbox -p partnerssandbox
+        if [ -n "$1" ]; then
+            yarndeploy "$1" $DEFAULT_SANDBOX
+        else
+            yarndeploy $DEFAULT_SERVICE
+        fi
     fi
 }
 
@@ -60,7 +67,7 @@ function yarndeploylambdas() {
     if [ -n "$2" ]; then
         yarn deploy:lambdas -e "$2" -c "$1" --skip-git-check
     else
-        yarn deploy:lambdas -e partnerssandbox -c "$1" --skip-git-check
+        yarn deploy:lambdas -e $DEFAULT_SANDBOX -c "$1" --skip-git-check
     fi
 }
 
@@ -68,3 +75,5 @@ alias ecl='ec aws creds login; ec yarn login; assume; assume dev'
 alias ex-nc='cd ~/node-core'
 alias ex-ci='cd ~/client-integrations'
 alias ex-sdk='cd ~/extend-sdk-client'
+alias yd='yarndeploy'
+alias ydl='yarndeploylambdas'
