@@ -73,6 +73,7 @@ function yarndeploylambdas() {
 
 alias ecl='ec aws creds login; ec yarn login; assume; assume dev'
 alias ex-nc='cd ~/node-core'
+alias ex-cl='cd ~/client'
 alias ex-ci='cd ~/client-integrations'
 alias ex-sdk='cd ~/extend-sdk-client'
 alias yd='yarndeploy'
