@@ -63,6 +63,18 @@ function yarndeploy() {
     fi
 }
 
+function yarndeployrebuild() {
+    if [ -n "$2" ]; then
+        yarn deploy -r "$1" -e "$2" -p "$2" -l "$1"
+    else
+        if [ -n "$1" ]; then
+            yarndeployrebuild "$1" $DEFAULT_SANDBOX
+        else
+            yarndeployrebuild $DEFAULT_SERVICE
+        fi
+    fi
+}
+
 function yarndeploylambdas() {
     if [ -n "$2" ]; then
         yarn deploy:lambdas -e "$2" -c "$1" --skip-git-check
@@ -77,4 +89,5 @@ alias ex-cl='cd ~/client'
 alias ex-ci='cd ~/client-integrations'
 alias ex-sdk='cd ~/extend-sdk-client'
 alias yd='yarndeploy'
+alias ydr='yarndeployrebuild'
 alias ydl='yarndeploylambdas'
