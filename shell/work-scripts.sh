@@ -48,6 +48,22 @@ function assume() {
     fi
 }
 
+function yarndeploy() {
+    if [ -n "$2" ]; then
+        yarn deploy -r "$1" -e "$2" -p "$2"
+    else
+        yarn deploy -r "$1" -e partnerssandbox -p partnerssandbox
+    fi
+}
+
+function yarndeploylambdas() {
+    if [ -n "$2" ]; then
+        yarn deploy:lambdas -e "$2" -c "$1" --skip-git-check
+    else
+        yarn deploy:lambdas -e partnerssandbox -c "$1" --skip-git-check
+    fi
+}
+
 alias ecl='ec aws creds login; ec yarn login; assume; assume dev'
 alias ex-nc='cd ~/node-core'
 alias ex-ci='cd ~/client-integrations'
