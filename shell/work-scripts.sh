@@ -1,5 +1,5 @@
 export DEFAULT_SANDBOX=partnerssandbox
-export DEFAULT_SERVICE=instore
+export DEFAULT_SERVICE=in-store
 
 function yt() {
     args=`getopt a "$@"`
