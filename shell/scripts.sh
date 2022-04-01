@@ -5,6 +5,8 @@ alias setup='zsh ~/dotfiles/setup.sh'
 alias gc='git commit -m'
 alias gs='git status'
 alias gl='git log --all --graph --decorate --oneline'
+alias gp='git push -u'
+git config --global push.default current
 
 # Basic commands
 alias rsrc='source ~/.zshrc'
