@@ -1,3 +1,6 @@
+# Setup
+alias setup='zsh ~/dotfiles/setup.sh'
+
 # Git commands
 alias gc='git commit -m'
 alias gs='git status'

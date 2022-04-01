@@ -69,8 +69,8 @@ function gitCloneOrPull() {
     (cd ~/dotfiles/plugins ; git clone --depth 1 -- "$1" &> /dev/null) || (cd ~/dotfiles/plugins/"$2" ; git pull)
 }
 gitCloneOrPull https://github.com/marlonrichert/zsh-autocomplete.git zsh-autocomplete
-gitCloneOrPull https://github.com/zsh-users/zsh-syntax-highlighting.git
-zsh-syntax-highlighting
+gitCloneOrPull https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
+gitCloneOrPull https://github.com/zsh-users/zsh-history-substring-search.git zsh-history-substring-search
 
 echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
