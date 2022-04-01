@@ -12,12 +12,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm, Node Version Manager
 
 
-# source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# bindkey '^ ' autosuggest-accept
-# bindkey '^n' vi-forward-blank-word-end
-# bindkey '^b' backward-kill-word
-# autoload -Uz compinit && compinit -i # completion such as git branches
-source ${PLUGINS}/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
+bindkey '^n' vi-forward-blank-word-end
+bindkey '^b' backward-kill-word
+autoload -Uz compinit && compinit -i # completion such as git branches
+# source ${PLUGINS}/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 
 source $MY_SCRIPTS/scripts.sh
