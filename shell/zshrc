@@ -1,5 +1,6 @@
 export PATH=$HOME/.toolbox/bin:$PATH
 export MY_SCRIPTS=~/dotfiles/shell
+export PLUGINS=~/dotfiles/plugins
 export EDITOR='nvim'
 export TERM=xterm-16color
 export HOMEBREW_PREFIX=$(brew --prefix)
@@ -21,14 +22,16 @@ alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
 export AWS_DEFAULT_PROFILE=partnerssandbox
 
 
-
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
+bindkey '^n' vi-forward-blank-word-end
+bindkey '^b' backward-kill-word
 autoload -Uz compinit && compinit -i # completion such as git branches
-
+# source ${PLUGINS}/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
-# source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##//extend-cli end
+
+source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
