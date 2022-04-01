@@ -22,7 +22,10 @@ autoload -Uz compinit && compinit -i # completion such as git branches
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+
 source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${PLUGINS}/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
