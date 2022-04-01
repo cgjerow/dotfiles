@@ -56,6 +56,13 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim --headless +PlugUpgrade +PlugUpdate +PlugClean +qa
 
+
+function gitCloneOrPull() {
+    (cd ~/dotfiles/plugins ; git clone --depth 1 -- "$1" &> /dev/null) || (cd ~/dotfiles/plugins/"$2" ; git pull)
+}
+
+gitCloneOrPull https://github.com/marlonrichert/zsh-autocomplete.git zsh-autocomplete
+
 echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
 mkdir ~/.config/nvim
