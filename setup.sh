@@ -38,7 +38,7 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn luajit neovim w3m htop zsh-autosuggestions zsh-syntax-highlighting ripgrep
+for package in node python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions zsh-syntax-highlighting ripgrep
 do
     brew-upstall $package
 done
