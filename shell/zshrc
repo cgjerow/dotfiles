@@ -19,7 +19,6 @@ bindkey '^b' backward-kill-word
 autoload -Uz compinit && compinit -i # completion such as git branches
 # source ${PLUGINS}/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
-# source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

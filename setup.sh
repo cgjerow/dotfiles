@@ -38,7 +38,7 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions zsh-syntax-highlighting ripgrep
+for package in node python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep
 do
     brew-upstall $package
 done
@@ -60,8 +60,9 @@ nvim --headless +PlugUpgrade +PlugUpdate +PlugClean +qa
 function gitCloneOrPull() {
     (cd ~/dotfiles/plugins ; git clone --depth 1 -- "$1" &> /dev/null) || (cd ~/dotfiles/plugins/"$2" ; git pull)
 }
-
 gitCloneOrPull https://github.com/marlonrichert/zsh-autocomplete.git zsh-autocomplete
+gitCloneOrPull https://github.com/zsh-users/zsh-syntax-highlighting.git
+zsh-syntax-highlighting
 
 echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
