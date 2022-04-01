@@ -1,5 +1,3 @@
-export PATH=$HOME/.toolbox/bin:$PATH
-export MY_SCRIPTS=~/dotfiles/shell
 export PLUGINS=~/dotfiles/plugins
 export EDITOR='nvim'
 export TERM=xterm-16color
@@ -35,7 +33,9 @@ source $MY_SCRIPTS/prompt.sh
 ##//extend-cli end
 
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${PLUGINS}/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
