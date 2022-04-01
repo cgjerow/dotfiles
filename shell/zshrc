@@ -1,3 +1,4 @@
+source ~/dotfiles/shell/work-zshrc
 export PATH=$HOME/.toolbox/bin:$PATH
 export MY_SCRIPTS=~/dotfiles/shell
 export PLUGINS=~/dotfiles/plugins
@@ -9,19 +10,6 @@ setopt +o nomatch
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
-
-##//extend-cli begin
-
-# Path to your oh-my-zsh installation.
-export EXTEND_CLI="/Users/connorjerow/.extend-cli"
-
-# Setup the alias
-alias ec="yarn --silent --cwd $EXTEND_CLI run extend-cli"
-
-# User configuration
-export AWS_DEFAULT_PROFILE=partnerssandbox
-
-
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 bindkey '^n' vi-forward-blank-word-end
@@ -31,8 +19,6 @@ autoload -Uz compinit && compinit -i # completion such as git branches
 
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
-
-##//extend-cli end
 
 
 source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
