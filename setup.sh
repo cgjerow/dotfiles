@@ -39,7 +39,7 @@ do
     brew tap $tap
 done
 
-for package in node python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep
+for package in node nvm python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep
 do
     brew-upstall $package
 done
