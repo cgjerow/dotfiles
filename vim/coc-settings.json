@@ -1,7 +1,12 @@
 {
   "eslint.autoFixOnSave": true,
   "suggest.noselect": false,
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "json", "jsonc", "java"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "json",
+    "jsonc",
+    "java"
+  ],
   "coc.preferences.jumpCommand": "tab drop",
   "signature.enable": true,
   "signature.preferShownAbove": true,
@@ -14,6 +19,5 @@
     }
   ],
   "java.home": "/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home",
-  "java.import.gradle.wrapper.enabled": false,
-  "java.import.gradle.home": true
+  "java.import.gradle.wrapper.enabled": false
 }
