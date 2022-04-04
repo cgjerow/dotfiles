@@ -51,7 +51,7 @@ done
 
 
 # work
-for package in nvm awscli newman ngrok fzf
+for package in awscli newman ngrok fzf
 do
     brew-upstall $package
 done
