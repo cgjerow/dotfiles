@@ -40,7 +40,8 @@ function assume() {
 
 function yarndeploy() {
     if [ -n "$2" ]; then
-        yarn deploy -r "$1" -e "$2" -p "$2"
+        ec okta login
+        ec service deploy --service "$1" --env "$2"  --version "$(git symbolic-ref HEAD)"
     else
         if [ -n "$1" ]; then
             yarndeploy "$1" $DEFAULT_SANDBOX
