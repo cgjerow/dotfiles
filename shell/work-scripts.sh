@@ -23,6 +23,10 @@ function ghpr() {
     gh pr create -t "$1" -b "$1" && gh pr view -w
 }
 
+function ghv() {
+    gh pr view -w
+}
+
 
 # yarn
 
