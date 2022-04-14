@@ -40,7 +40,7 @@ function assume() {
 
 function yarndeploy() {
     if [ -n "$2" ]; then
-        ec okta login
+        okl
         ec service deploy --service "$1" --env "$2"  --version "$(git symbolic-ref HEAD)"
     else
         if [ -n "$1" ]; then
@@ -71,6 +71,7 @@ function yarndeploylambdas() {
     fi
 }
 
+alias okl='ec okta login & (sleep 2; open -a Terminal)'
 alias ecl='ec aws creds login; ec yarn login; assume; assume dev'
 alias ex-nc='cd ~/node-core'
 alias ex-cl='cd ~/client'
