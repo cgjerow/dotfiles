@@ -10,6 +10,7 @@ git config --global push.default current
 
 # Basic commands
 alias rsrc='source ~/.zshrc'
+alias dotfiles='cd ~/dotfiles'
 alias e="$EDITOR"
 alias vi='e'
 alias vim='e'
