@@ -256,6 +256,7 @@ let g:ctrlp_prompt_mappings = {
 nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = 'build\|node_modules\|git'
 let g:ctrlp_max_files = 0
+let g:ctrlp_show_hidden = 1
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
