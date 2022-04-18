@@ -50,6 +50,8 @@ done
 
 brew cleanup
 
+yarn install -g eslint
+
 python3 -m pip install --upgrade pip
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
