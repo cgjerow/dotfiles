@@ -58,7 +58,7 @@ done
 
 brew cleanup
 
-yarn install -g eslint
+yarn global add eslint
 
 python3 -m pip install --upgrade pip
 
