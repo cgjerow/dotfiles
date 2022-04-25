@@ -75,7 +75,7 @@ function yarndeploylambdas() {
     fi
 }
 
-alias okl='ec okta login & (sleep 2; open -a Terminal)'
+alias okl='ec okta login & (sleep 2.5; open -a Terminal)'
 alias ecl='ec aws creds login; (ec yarn login & assume & assume dev)'
 alias ex-nc='cd ~/node-core'
 alias ex-cl='cd ~/client'
