@@ -44,7 +44,6 @@ function assume() {
 
 function yarndeploy() {
     if [ -n "$2" ]; then
-        okl
         ec service deploy --service "$1" --env "$2"  --version "$(git symbolic-ref HEAD)"
     else
         if [ -n "$1" ]; then
