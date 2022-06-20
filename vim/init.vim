@@ -123,7 +123,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType typescript,typescriptreact,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
@@ -260,5 +260,4 @@ let g:ctrlp_show_hidden = 1
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-set shiftwidth=4 tabstop=4 softtabstop=2 expandtab
-autocmd FileType typescript,javascript,json setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+set shiftwidth=2 tabstop=2 softtabstop=0 expandtab
