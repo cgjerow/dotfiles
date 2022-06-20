@@ -3,6 +3,9 @@
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
     "json",
     "jsonc",
     "java"
@@ -11,6 +14,8 @@
   "signature.enable": true,
   "signature.preferShownAbove": true,
   "tsserver.maxTsServerMemory": 16000,
+  "tsserver.enableJavascript": true,
+  "tsserver.log": "verbose",
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-14",
