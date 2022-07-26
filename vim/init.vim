@@ -10,7 +10,6 @@ filetype off
 let mapleader = "," 
 
 set wildignore+=**/.git/*
-set wildignore+=**/dist/*
 
 call plug#begin("~/.config/nvim/plugged")
 
