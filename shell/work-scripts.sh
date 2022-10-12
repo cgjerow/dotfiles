@@ -74,6 +74,7 @@ function yarndeploylambdas() {
     fi
 }
 
+alias ecc='ec aws console -e '
 alias okl='ec okta login & (sleep 2.5; open -a Terminal)'
 alias ecl='ec aws creds login; (ec yarn login & assume & assume dev)'
 alias pbl='ec aws creds login -l extend_global_package_publisher && ec yarn login'
