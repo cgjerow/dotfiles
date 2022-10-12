@@ -44,7 +44,7 @@ function assume() {
 
 function yarndeploy() {
     if [ -n "$2" ]; then
-        ec service deploy --service "$1" --env "$2"  --version "$(git symbolic-ref HEAD)"
+        ec service deploy --service "$1" --env "$2"  --version "$(git rev-parse HEAD)"
     else
         if [ -n "$1" ]; then
             yarndeploy "$1" $DEFAULT_SANDBOX
