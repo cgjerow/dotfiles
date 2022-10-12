@@ -4,6 +4,7 @@ set foldmethod=syntax
 set foldlevelstart=99
 set maxmempattern=4000
 set shellcmdflag=-ic
+set mousemodel=extend
 
 filetype off
 
