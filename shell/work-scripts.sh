@@ -54,6 +54,18 @@ function yarndeploy() {
     fi
 }
 
+function yarndeploystatus() {
+    if [ -n "$2" ]; then
+        ec service deploy status --service "$1" --env "$2"
+    else
+        if [ -n "$1" ]; then
+            yarndeploystatus "$1" $DEFAULT_SANDBOX
+        else
+            yarndeploystatus $DEFAULT_SERVICE
+        fi
+    fi
+}
+
 function yarndeployrebuild() {
     if [ -n "$2" ]; then
         yarn deploy -r "$1" -e "$2" -p "$2" -l "$1"
@@ -87,5 +99,6 @@ alias ex-cl='cd ~/client'
 alias ex-ci='cd ~/client-integrations'
 alias ex-sdk='cd ~/extend-sdk-client'
 alias yd='yarndeploy'
+alias yds='yarndeploystatus'
 alias ydr='yarndeployrebuild'
 alias ydl='yarndeploylambdas'
