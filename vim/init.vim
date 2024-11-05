@@ -30,8 +30,8 @@ source ~/dotfiles/vim/theme.vim
 
 
 " Coc Extensions
-let g:coc_node_path = substitute(system('which node'), '\n', '', '')
-let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-java', 'coc-rls', 'coc-prettier', 'coc-eslint' , 'coc-pairs', 'coc-sh' ]
+" let g:coc_node_path = (split(system('which node'), 'bin/node'))[0]..'bin/node'
+let g:coc_global_extensions = [ 'coc-lists', 'coc-tsserver', 'coc-java', 'coc-prettier', 'coc-eslint' , 'coc-pairs', 'coc-sh', 'coc-clangd', 'coc-rust-analyzer']
 
 " Coc Setup
 
@@ -258,5 +258,6 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_show_hidden = 1
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command E Explore
 
 set shiftwidth=2 tabstop=2 softtabstop=0 expandtab

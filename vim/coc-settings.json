@@ -2,12 +2,17 @@
   "eslint.autoFixOnSave": true,
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
+    "cpp",
+    "c",
+    "h",
+    "hpp",
     "typescript",
     "typescriptreact",
     "javascript",
     "javascriptreact",
     "json",
     "jsonc",
+    "rust",
     "java"
   ],
   "coc.preferences.jumpCommand": "tab drop",
