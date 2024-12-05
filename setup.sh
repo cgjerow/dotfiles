@@ -33,12 +33,12 @@ cask-upstall()
     echo "Upstall of $1 completed."
 }
 
-for tap in chrokh/tap
+for tap in chrokh/tap hashicorp/tap
 do
     brew tap $tap
 done
 
-for package in node nvm python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi
+for package in node nvm python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform
 do
     brew-upstall $package
 done
