@@ -213,7 +213,7 @@ autocmd FileType * let b:coc_pairs_disabled = ["<"]
 " hi! CocErrorSign ctermfg=0 
 " hi! CocWarningSign ctermfg=0
 " hi! PmenuSel ctermfg=0 ctermbg=245
-hi CocFloating ctermbg=8
+" hi CocFloating ctermbg=8
 
 
 

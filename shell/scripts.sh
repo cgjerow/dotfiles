@@ -23,3 +23,5 @@ alias rg='rg -.S'
 
 source ~/dotfiles/tmux/setup.sh
 alias tms='tmuxSession'
+
+alias python=python3
