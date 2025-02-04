@@ -43,7 +43,7 @@ do
     brew-upstall $package
 done
 
-for cask in google-chrome iglance
+for cask in iglance
 do
     cask-upstall $cask --cask
 done

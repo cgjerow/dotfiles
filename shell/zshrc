@@ -1,4 +1,5 @@
 export PATH=$HOME/.toolbox/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
 export MY_SCRIPTS=~/dotfiles/shell
 export PLUGINS=~/dotfiles/plugins
 export EDITOR='nvim'
