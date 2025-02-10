@@ -14,6 +14,7 @@
     "jsonc",
     "rust",
     "py",
+    "kt",
     "java"
   ],
   "coc.preferences.jumpCommand": "tab drop",
@@ -22,18 +23,5 @@
   "tsserver.maxTsServerMemory": 16000,
   "tsserver.enableJavascript": true,
   "tsserver.log": "verbose",
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-14",
-      "path": "/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home",
-      "default": true
-    }
-  ],
-  "java.home": "/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home",
-  "java.import.gradle.wrapper.enabled": false,
-  "pyright": {
-    "inlayHints": {
-      "parameterTypes": false
-    }
-  }
+  "java.import.gradle.wrapper.enabled": false
 }

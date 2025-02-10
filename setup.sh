@@ -38,7 +38,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform
+for package in node nvm python tmux yarn luajit neovim gh glab w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform
 do
     brew-upstall $package
 done
@@ -53,6 +53,10 @@ brew cleanup
 yarn global add eslint
 
 python3 -m pip install --upgrade pip
+
+
+# install sdk man for Java Version Management
+# curl -s "https://get.sdkman.io" | bash
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
