@@ -14,6 +14,7 @@ alias glv='glab repo view --web'
 
 # Basic commands
 alias rsrc='source ~/.zshrc'
+alias resource='source ~/.zshrc'
 alias dotfiles='cd ~/dotfiles'
 alias dot='dotfiles'
 alias e="$EDITOR"
