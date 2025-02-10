@@ -18,6 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+Plug 'stevearc/conform.nvim'
 Plug 'stefandtw/quickfix-reflector.vim'
 
 call plug#end()
@@ -32,6 +33,8 @@ source ~/dotfiles/vim/theme.vim
 " Coc Extensions
 " let g:coc_node_path = (split(system('which node'), 'bin/node'))[0]..'bin/node'
 let g:coc_global_extensions = [ 'coc-kotlin', 'coc-lists', 'coc-tsserver', 'coc-java', 'coc-prettier', 'coc-eslint' , 'coc-pairs', 'coc-sh', 'coc-clangd', 'coc-rust-analyzer']
+
+lua require("conform_setup")
 
 " Coc Setup
 

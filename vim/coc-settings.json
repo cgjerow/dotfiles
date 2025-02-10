@@ -22,6 +22,5 @@
   "signature.preferShownAbove": true,
   "tsserver.maxTsServerMemory": 16000,
   "tsserver.enableJavascript": true,
-  "tsserver.log": "verbose",
-  "java.import.gradle.wrapper.enabled": false
+  "tsserver.log": "verbose"
 }
