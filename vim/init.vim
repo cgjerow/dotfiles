@@ -14,6 +14,7 @@ set wildignore+=**/.git/*
 call plug#begin("~/.config/nvim/plugged")
 
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
@@ -167,7 +168,8 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+" using conform plugin instead
+" command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
