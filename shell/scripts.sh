@@ -9,6 +9,9 @@ alias gp='git push -u'
 alias gcm='git checkout master'
 git config --global push.default current
 
+# Gitlab commands
+alias glv='glab repo view --web'
+
 # Basic commands
 alias rsrc='source ~/.zshrc'
 alias dotfiles='cd ~/dotfiles'
