@@ -38,7 +38,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm python tmux yarn luajit neovim gh glab w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform ktlint stylua
+for package in node nvm python tmux yarn luajit neovim gh glab w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform ktlint ktfmt stylua
 do
     brew-upstall $package
 done
@@ -75,8 +75,6 @@ echo "TODO: add prefix to identify files that should be symlinked into home dire
 mkdir ~/.config/nvim
 ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/vim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 echo "Sourcing .zshrc"
 source ~/.zshrc
