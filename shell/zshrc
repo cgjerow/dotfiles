@@ -3,8 +3,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export MY_SCRIPTS=~/dotfiles/shell
 export PLUGINS=~/dotfiles/plugins
 export EDITOR='nvim'
-export TERM=xterm-16color
 export HOMEBREW_PREFIX=$(brew --prefix)
+export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/captech-ugc-gcp-dev-manual
 setopt +o nomatch
 
 
@@ -22,6 +22,7 @@ autoload -Uz compinit && compinit -i # completion such as git branches
 
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
+source $MY_SCRIPTS/theme.sh
 
 
 source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -33,6 +34,18 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+
+# Add ssh keys
+# Start SSH agent if not already running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)"
+fi
+
+# Add all IdentityFiles from ~/.ssh/config
+for key in $(awk '/IdentityFile/ {print $2}' ~/.ssh/config); do
+    ssh-add --apple-use-keychain "$key" 2>/dev/null
+done
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
