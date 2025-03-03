@@ -21,7 +21,7 @@ alias ll='ls -la'
 # Search
 alias rg='rg -.S'
 
-alias python=python3
+# alias python=python3
 
 source ~/dotfiles/tmux/setup.sh
 alias tms='tmuxSession'

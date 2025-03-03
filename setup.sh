@@ -38,7 +38,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm python tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform
+for package in node nvm tmux yarn luajit neovim gh w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform
 do
     brew-upstall $package
 done

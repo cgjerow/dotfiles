@@ -13,6 +13,7 @@
     "json",
     "jsonc",
     "rust",
+    "py",
     "java"
   ],
   "coc.preferences.jumpCommand": "tab drop",
@@ -29,5 +30,10 @@
     }
   ],
   "java.home": "/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home",
-  "java.import.gradle.wrapper.enabled": false
+  "java.import.gradle.wrapper.enabled": false,
+  "pyright": {
+    "inlayHints": {
+      "parameterTypes": false
+    }
+  }
 }
