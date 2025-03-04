@@ -7,7 +7,6 @@ alias gs='git status'
 alias gl='git log --all --graph --decorate --oneline'
 alias gp='git push -u'
 alias gcm='git checkout master'
-git config --global push.default current
 
 # Gitlab commands
 alias glv='glab repo view --web'

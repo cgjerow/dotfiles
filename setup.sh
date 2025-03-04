@@ -71,6 +71,7 @@ gitCloneOrPull https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-synt
 gitCloneOrPull https://github.com/zsh-users/zsh-history-substring-search.git zsh-history-substring-search
 gitCloneOrPull https://github.com/zsh-users/zsh-history-substring-search.git zsh-history-substring-search
 gitCloneOrPull git@github.com:cgjerow/kickstart.nvim.git nvim
+git config --global push.default current
 
 echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
