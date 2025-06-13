@@ -5,7 +5,6 @@ export MY_SCRIPTS=~/dotfiles/shell
 export PLUGINS=~/dotfiles/plugins
 export EDITOR='nvim'
 export HOMEBREW_PREFIX=$(brew --prefix)
-export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/captech-ugc-gcp-dev-manual
 setopt +o nomatch
 
 

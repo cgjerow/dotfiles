@@ -26,3 +26,15 @@ tmuxSession ()
 	fi
 	tmux a -t $session
 }
+
+tmuxIdea ()
+{
+	session="idea"
+	tmux-has-session $session
+	if [ $? != 0 ]
+	then
+		tmux new-session -d -s $session -n main 
+		tmux set-option status-position top
+	fi
+	tmux a -t $session
+}

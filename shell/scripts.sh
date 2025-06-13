@@ -31,3 +31,6 @@ alias gradlew="./gradlew"
 
 source ~/dotfiles/tmux/setup.sh
 alias tms='tmuxSession'
+alias tmi='tmuxIdea'
+
+source ~/dotfiles/shell/work.sh
