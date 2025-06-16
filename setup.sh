@@ -58,9 +58,9 @@ python3 -m pip install --upgrade pip
 # install sdk man for Java Version Management
 # curl -s "https://get.sdkman.io" | bash
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim --headless +PlugUpgrade +PlugUpdate +PlugClean +qa
+# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       # https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# nvim --headless +PlugUpgrade +PlugUpdate +PlugClean +qa
 
 function gitCloneOrPull() {
     (cd ~/dotfiles/plugins ; git clone --depth 1 -- "$1" $2 &> /dev/null) || (cd ~/dotfiles/plugins/"$2" ; git pull)
@@ -75,9 +75,9 @@ git config --global push.default current
 
 echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
-ln -sf ~/dotfiles/plugins/nvim ~/.config
 ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/vim/nvim ~/.config
 
 echo "Sourcing .zshrc"
 source ~/.zshrc
