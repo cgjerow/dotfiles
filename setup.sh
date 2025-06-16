@@ -77,7 +77,7 @@ echo "Linking dotfiles to home directory..."
 echo "TODO: add prefix to identify files that should be symlinked into home directory"
 ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/vim/nvim ~/.config
+ln -sf ~/dotfiles/lua-nvim ~/.config/nvim
 
 echo "Sourcing .zshrc"
 source ~/.zshrc
