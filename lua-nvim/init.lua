@@ -463,9 +463,9 @@ require('lazy').setup {
         -- ts_ls = {},
         --
         --
-        kotlin_language_server = {},
-        detekt = {},
         protols = {},
+        kotlin_language_server = {},
+        ts_ls = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -497,14 +497,22 @@ require('lazy').setup {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',
+        'stylua', -- Used to format Lua code
         'ktlint',
+        'prettier', -- Formatter for JS/TS/HTML/CSS/etc
+        'eslint_d', -- Fast linter for JS/TS (daemonized version of ESLint)
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
-        ensure_installed = {},
-        automatic_installation = false,
+        ensure_installed = {
+          'lua-language-server',
+          'typescript-language-server',
+          'eslint',
+          'prettier',
+          'pyright',
+        },
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -514,12 +522,8 @@ require('lazy').setup {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
-        },
-        require('java').setup {
-          filetypes = { 'java', 'kotlin' },
-        },
-        require('lspconfig').jdtls.setup {
-          filetypes = { 'java', 'kotlin' },
+          require('java').setup {},
+          require('lspconfig').jdtls.setup {},
         },
       }
       require('lspconfig').protols.setup {} -- I don't know why this isn't picked up in the above function but it's not
@@ -565,6 +569,13 @@ require('lazy').setup {
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier' },
+        typescript = { 'prettierd', 'prettier' },
+        typescriptreact = { 'prettierd', 'prettier' },
+        javascriptreact = { 'prettierd', 'prettier' },
+        ['_'] = {
+          stop_after_first = true,
+        },
       },
     },
   },
@@ -728,7 +739,26 @@ require('lazy').setup {
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'kotlin', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'java' },
+      ensure_installed = {
+        'kotlin',
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'java',
+        'javascript',
+        'typescript',
+        'tsx', -- for .tsx (TypeScript React) files
+        'json', -- if you're working with JSON often},
+      },
+      -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
