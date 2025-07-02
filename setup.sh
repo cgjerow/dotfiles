@@ -1,4 +1,6 @@
 echo "Upstall of Homebrew in progress..."
+source .env
+
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
@@ -38,10 +40,18 @@ do
     brew tap $tap
 done
 
-for package in node nvm python tmux yarn luajit neovim gh glab w3m htop zsh-autosuggestions ripgrep cmake gcc-arm-none-eabi ngrok/ngrok/ngrok hashicorp/tap/terraform ktlint ktfmt stylua rust
+for package in node nvm tmux fzf atuin bat tldr yarn luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide
 do
     brew-upstall $package
 done
+
+# work additions
+if [[ -v IS_WORK ]]; then
+    for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt
+    do
+	brew-upstall $package
+    done
+fi
 
 for cask in iglance
 do
@@ -51,9 +61,6 @@ done
 brew cleanup
 
 yarn global add eslint
-
-python3 -m pip install --upgrade pip
-
 
 # install sdk man for Java Version Management
 # curl -s "https://get.sdkman.io" | bash
@@ -83,4 +90,3 @@ echo "Sourcing .zshrc"
 source ~/.zshrc
 
 echo "Done!"
-

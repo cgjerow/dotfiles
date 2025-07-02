@@ -26,6 +26,9 @@ alias ll='ls -la'
 # Search
 alias rg='rg -.S'
 
+# zoxide - cd
+alias cd=z
+
 # Gradle
 alias gradlew="./gradlew"
 
