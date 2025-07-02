@@ -40,7 +40,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm tmux fzf bat tldr luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide
+for package in node nvm tmux fzf bat tldr luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr
 do
     brew-upstall $package
 done
