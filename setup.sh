@@ -40,7 +40,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm tmux fzf atuin bat tldr yarn luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide
+for package in node nvm tmux fzf bat tldr yarn luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide
 do
     brew-upstall $package
 done
@@ -61,6 +61,8 @@ done
 brew cleanup
 
 yarn global add eslint
+
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
 # install sdk man for Java Version Management
 # curl -s "https://get.sdkman.io" | bash
