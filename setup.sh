@@ -40,7 +40,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm tmux fzf bat tldr yarn luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide
+for package in node nvm tmux fzf bat tldr luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide
 do
     brew-upstall $package
 done
@@ -60,7 +60,8 @@ done
 
 brew cleanup
 
-yarn global add eslint
+npm install -g eslint
+npm install -g tldr
 
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 

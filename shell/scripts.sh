@@ -36,4 +36,6 @@ source ~/dotfiles/tmux/setup.sh
 alias tms='tmuxSession'
 alias tmi='tmuxIdea'
 
-source ~/dotfiles/shell/work.sh
+if [[ -v IS_WORK ]]; then
+    source ~/dotfiles/shell/work.sh
+fi
