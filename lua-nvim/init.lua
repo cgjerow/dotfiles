@@ -506,10 +506,9 @@ require('lazy').setup {
 
       require('mason-lspconfig').setup {
         ensure_installed = {
-          'lua-language-server',
-          'typescript-language-server',
+          'lua_ls',
+          'ts_ls',
           'eslint',
-          'prettier',
           'pyright',
         },
         automatic_installation = true,
