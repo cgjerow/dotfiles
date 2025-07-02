@@ -47,7 +47,7 @@ done
 
 # work additions
 if [[ -v IS_WORK ]]; then
-    for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt
+    for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt krew
     do
 	brew-upstall $package
     done
