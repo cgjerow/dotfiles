@@ -40,7 +40,7 @@ do
     brew tap $tap
 done
 
-for package in node nvm tmux fzf bat tldr luajit neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr
+for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr
 do
     brew-upstall $package
 done
@@ -62,6 +62,7 @@ brew cleanup
 
 npm install -g eslint
 npm install -g tldr
+luarocks install luasocket
 
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
