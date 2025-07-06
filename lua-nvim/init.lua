@@ -180,6 +180,15 @@ require('lazy').setup {
   },
   -- LSP Plugins
   {
+    'ThePrimeagen/refactoring.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    lazy = false,
+    opts = {},
+  },
+  {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
@@ -259,7 +268,6 @@ require('lazy').setup {
           settings = {
             Lua = {
               diagnostics = {
-                globals = { 'love' },
                 disable = { 'missing-fields', 'missing-parameter' },
               },
               completion = {
