@@ -119,6 +119,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Basic Autocommands
 
+vim.keymap.set('n', '<C-t>', '<C-^>', { desc = 'Toggle between previous buffer' })
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -177,6 +179,13 @@ require('lazy').setup {
       vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<C-b>', builtin.buffers, { desc = '[ ] Find existing buffers' })
     end,
+  },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
   },
   -- LSP Plugins
   {
