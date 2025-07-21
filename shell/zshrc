@@ -23,6 +23,7 @@ autoload -Uz compinit && compinit -i # completion such as git branches
 source $MY_SCRIPTS/scripts.sh
 source $MY_SCRIPTS/prompt.sh
 source $MY_SCRIPTS/theme.sh
+source $MY_SCRIPTS/private_profiles.sh
 
 
 source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
