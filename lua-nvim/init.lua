@@ -323,6 +323,7 @@ require('lazy').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         kotlin = { 'ktlint' },
+        python = { 'black' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier' },
         typescript = { 'prettierd', 'prettier' },
@@ -492,6 +493,7 @@ require('lazy').setup {
     opts = {
       ensure_installed = {
         'kotlin',
+        'python',
         'bash',
         'c',
         'diff',
