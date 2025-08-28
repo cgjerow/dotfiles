@@ -321,7 +321,7 @@ require('lazy').setup {
         }
       end,
       formatters_by_ft = {
-        lua = { 'stylua' },
+        lua = { lsp_format = 'always' },
         kotlin = { 'ktlint' },
         python = { 'black' },
         -- You can use 'stop_after_first' to run the first available formatter from the list

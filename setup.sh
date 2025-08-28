@@ -64,8 +64,6 @@ npm install -g eslint
 npm install -g tldr
 luarocks install luasocket
 
-curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
-
 # install sdk man for Java Version Management
 # curl -s "https://get.sdkman.io" | bash
 
