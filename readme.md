@@ -33,6 +33,17 @@ First, run the setup file:
 After running these, you should be able to start tmux and vim with the proper configurations using the shell command *ts* 
 
 
-## SSH
+## Github
+
+### SSH
 
 At this stage you can setup Github SSH by following [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+### Config
+
+You will also need to set your global configs:
+
+```
+git config --global user.name "Connor Jerow"
+git config --global user.email cgjerow@gmail.com
+```
