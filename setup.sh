@@ -1,3 +1,8 @@
+mkdir -p ~/.config
+
+[ -f ~/dotfiles/.env ] || touch ~/dotfiles/.env
+[ -f ~/dotfiles/shell/private_profiles.sh ] || touch ~/dotfiles/shell/private_profiles.sh
+
 echo "Upstall of Homebrew in progress..."
 source .env
 
@@ -53,7 +58,7 @@ if [[ -v IS_WORK ]]; then
     done
 fi
 
-for cask in iglance
+for cask in iglance iterm2
 do
     cask-upstall $cask --cask
 done
