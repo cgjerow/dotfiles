@@ -1,3 +1,7 @@
+# Install
+
+Make sure to login and clone with ssh or you'll need to change the remote-url to the ssh one to push later.
+
 # New Computer Setup
 
 ## Mac Settings
