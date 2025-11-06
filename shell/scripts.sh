@@ -22,6 +22,7 @@ alias e="$EDITOR"
 alias vi='e'
 alias vim='e'
 alias ll='ls -la'
+alias cplast='fc -ln -1 | pbcopy'
 
 # Search
 alias rg='rg -.S'
