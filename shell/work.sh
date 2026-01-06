@@ -1,6 +1,9 @@
 export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/configurations/gcp-local.json
 export ELASTICSEARCH_APIKEY=$(<~/.config/ugc-server/ELASTICSEARCH_DEV.key)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 alias vpnreset='sudo killall vpnagentd && open -a "Cisco Secure Client"'
 

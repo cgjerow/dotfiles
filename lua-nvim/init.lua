@@ -151,7 +151,7 @@ require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-fugitive',
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  { -- Fuzzy Finder (files, lsp, etc)
+  {                   -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     branch = '0.1.x',
@@ -216,7 +216,7 @@ require('lazy').setup {
       -- LSP support
       { 'neovim/nvim-lspconfig' },
       -- Automatic installer
-      { 'williamboman/mason.nvim', opts = {} },
+      { 'williamboman/mason.nvim',          opts = {} },
       { 'williamboman/mason-lspconfig.nvim' },
       -- Completion integration
       { 'hrsh7th/cmp-nvim-lsp' },
@@ -235,7 +235,11 @@ require('lazy').setup {
       }
 
       -- Tell lsp-zero to use Mason for installing missing servers
-      lsp.ensure_installed {} -- empty = on-demand only
+      lsp.ensure_installed {
+        'ruff',
+        'pyright'
+      }
+
       lsp.setup_servers() -- applies ensure_installed + mason-lspconfig
 
       -- Configure nvim-cmp through lsp-zero
@@ -303,28 +307,25 @@ require('lazy').setup {
       },
     },
     opts = {
-      notify_on_error = false,
-      format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
-        local lsp_format_opt
-        if disable_filetypes[vim.bo[bufnr].filetype] then
-          lsp_format_opt = 'never'
-        else
-          lsp_format_opt = 'fallback'
-        end
-        return {
-          timeout_ms = 500,
-          lsp_format = lsp_format_opt,
-        }
-      end,
+      formatters = {
+        ruff_fix = {
+          command = "ruff",
+          args = { "check", "--fix", "--stdin-filename", "$FILENAME", "-" },
+          stdin = true,
+        },
+        ruff_format = {
+          command = "ruff",
+          args = { "format", "--stdin-filename", "$FILENAME", "-", "--", "--fix", "--fix-imports" },
+          stdin = true,
+        },
+      },
+      notify_on_error = true,
+      format_on_save = true,
+      -- You can use 'stop_after_first' to run the first available formatter from the list
       formatters_by_ft = {
         lua = { lsp_format = 'always' },
         kotlin = { 'ktlint' },
-        python = { 'black' },
-        -- You can use 'stop_after_first' to run the first available formatter from the list
+        python = { 'ruff_format', 'ruff' },
         javascript = { 'prettierd', 'prettier' },
         typescript = { 'prettierd', 'prettier' },
         typescriptreact = { 'prettierd', 'prettier' },
@@ -508,7 +509,7 @@ require('lazy').setup {
         'java',
         'javascript',
         'typescript',
-        'tsx', -- for .tsx (TypeScript React) files
+        'tsx',  -- for .tsx (TypeScript React) files
         'json', -- if you're working with JSON often},
       },
       -- Autoinstall languages that are not installed
