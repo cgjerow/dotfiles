@@ -37,6 +37,10 @@ source ~/dotfiles/tmux/setup.sh
 alias tms='tmuxSession'
 alias tmi='tmuxIdea'
 
+# Youtube Download Playlist
+alias dlp='yt-dlp -f bestaudio --extract-audio --audio-format m4a --audio-quality 0 --embed-thumbnail --add-metadata -o "%(playlist_index)03d - %(title)s.%(ext)s" --download-archive ~/dlp_downloaded.txt'
+
 if [[ -v IS_WORK ]]; then
     source ~/dotfiles/shell/work.sh
 fi
+
