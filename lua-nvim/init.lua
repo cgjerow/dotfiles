@@ -150,6 +150,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-fugitive',
+  'github/copilot.vim',
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   {                   -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
@@ -210,86 +211,45 @@ require('lazy').setup {
     },
   },
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x', -- make sure you’re on the latest 2.x branch
+    'neovim/nvim-lspconfig',
     dependencies = {
-      -- LSP support
-      { 'neovim/nvim-lspconfig' },
-      -- Automatic installer
-      { 'williamboman/mason.nvim',          opts = {} },
+      { 'williamboman/mason.nvim',          config = true }, -- Automatically run setup()
       { 'williamboman/mason-lspconfig.nvim' },
-      -- Completion integration
-      { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/nvim-cmp' },
-      -- (optional) Snippet engine + sources
-      { 'L3MON4D3/LuaSnip' },
-      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
     },
     config = function()
-      local lsp = require('lsp-zero').preset {
-        name = 'minimal',
-        -- Automatically install LSP servers when you open a buffer
-        manage_nvim_cmp = true,
-        set_lsp_keymaps = false, -- we’ll do our own on_attach
-        suggest_lsp_servers = false,
-      }
-
-      -- Tell lsp-zero to use Mason for installing missing servers
-      lsp.ensure_installed {
-        'ruff',
-        'pyright'
-      }
-
-      lsp.setup_servers() -- applies ensure_installed + mason-lspconfig
-
-      -- Configure nvim-cmp through lsp-zero
-      lsp.setup_nvim_cmp {
-        mapping = lsp.defaults.cmp_mappings {
-          ['<Tab>'] = require('cmp').mapping.confirm { select = true },
-          ['<C-Space>'] = require('cmp').mapping.complete(),
-        },
-      }
-
-      -- Your on_attach, with buffer‑local LSP keymaps
-      lsp.on_attach(function(client, bufnr)
-        local map = function(lhs, rhs, desc)
-          vim.keymap.set('n', lhs, rhs, { buffer = bufnr, desc = desc and 'LSP: ' .. desc, silent = true })
-        end
-
-        map('gd', vim.lsp.buf.definition, 'Go to definition')
-        map('gr', vim.lsp.buf.references, 'Find references')
-        map('gD', vim.lsp.buf.declaration, 'Go to declaration')
-        map('K', vim.lsp.buf.hover, 'Hover docs')
-        map('<leader>rn', vim.lsp.buf.rename, 'Rename')
-        map('<leader>a', vim.lsp.buf.code_action, 'Code action')
-        map(']d', function()
-          vim.diagnostic.goto_next { float = true }
-        end, 'Next diagnostic')
-        map('[d', function()
-          vim.diagnostic.goto_prev { float = true }
-        end, 'Prev diagnostic')
-      end)
-
-      -- Finally, run the whole setup
-      lsp.setup()
-
-      -- now override only lua_ls with your custom settings
-      require('lspconfig').lua_ls.setup(vim.tbl_deep_extend(
-        'force',
-        lsp.nvim_lua_ls(), -- base Neovim Lua settings from lsp-zero
-        {
-          settings = {
-            Lua = {
-              diagnostics = {
-                disable = { 'missing-fields', 'missing-parameter' },
-              },
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
+      -- 1. Setup Mason to install your servers
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'pyright', 'ruff', 'lua_ls' }, -- Actual LSP servers only
+        handlers = {
+          function(server_name)
+            -- 2. Use the new 0.11+ native way to enable servers
+            vim.lsp.enable(server_name)
+          end,
+          -- 3. Custom settings for specific servers (like lua_ls)
+          ["lua_ls"] = function()
+            vim.lsp.config("lua_ls", {
+              settings = {
+                Lua = {
+                  diagnostics = { disable = { 'missing-fields' } },
+                }
+              }
+            })
+            vim.lsp.enable("lua_ls")
+          end,
         }
-      ))
+      })
+
+      -- 4. Global Keymaps (Standard for 0.11+)
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local opts = { buffer = args.buf }
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        end,
+      })
     end,
   },
   { -- Autoformat
