@@ -6,6 +6,20 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
+vim.opt.autoread = true
+
+local timer = vim.uv.new_timer()
+
+timer:start(
+  0,      -- start immediately
+  500,    -- check every 500ms
+  vim.schedule_wrap(function()
+    if vim.fn.mode() == "n" then
+      vim.cmd("silent! checktime")
+    end
+  end)
+)
+
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)

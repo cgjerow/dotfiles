@@ -208,38 +208,38 @@ These are git repos in `~` that should be cloned during setup:
 ## 11. Priority & Implementation Plan
 
 ### Phase 1: Critical (Setup.sh Gaps)
-- [ ] Add missing brew packages to `setup.sh` (cloudflared, docker, magnet, yt-dlp, mkvtoolnix, grpcurl, jq, openjdk@11)
-- [ ] Add `git config --global user.name` and `user.email` to `setup.sh`
-- [ ] Add `~/.profile` to dotfiles (cargo, LM Studio paths)
-- [ ] Add `~/.ssh/config` to dotfiles (exclude private keys — document manual import)
-- [ ] Add `~/.config/gh/config.yml` to dotfiles (exclude `hosts.yml` with auth tokens)
-- [ ] Add `~/.config/htop/htoprc` to dotfiles
-- [ ] Add uv install to setup.sh
+- [x] Add missing brew packages to `setup.sh` (cloudflared, docker, yt-dlp, mkvtoolnix, jq, openjdk@11 in core; grpcurl in work; magnet in casks)
+- [x] Add `git config --global user.name` and `user.email` to `setup.sh`
+- [x] Add `~/.profile` to dotfiles (cargo, LM Studio paths) — symlinked from `dotfiles/shell/profile`
+- [x] Add `~/.ssh/config` to dotfiles (symlinked from `dotfiles/ssh/config`) — private keys (`id_gh_primary`) must be imported manually
+- [x] Add `~/.config/gh/config.yml` to dotfiles (symlinked from `dotfiles/gh/config.yml`) — `hosts.yml` with auth tokens must be excluded
+- [x] Add `~/.config/htop/htoprc` to dotfiles (symlinked from `dotfiles/htop/htoprc`)
+- [ ] Add uv install to setup.sh (deferred — not needed)
 
-- [ ] Fix hardcoded Google Cloud SDK path in zshrc
+- [x] Remove hardcoded Google Cloud SDK path from zshrc (SDK not needed, credentials JSON is separate)
 
 ### Phase 2: macOS Settings Automation
 - [x] Create `dotfiles/scripts/mac_settings.sh` (recurring, always runs)
 - [x] Create `dotfiles/scripts/mac_settings_one_time.sh` (one-time, guarded + `--full` flag)
 - [x] Split setup: `setup_general.sh` (cross-platform) + `setup_mac.sh` (macOS recurring)
 - [x] `setup.sh` skips one-time by default, shows help message
-- [ ] Export iTerm2 plist and add to dotfiles
-- [ ] Add iTerm2 plist install step to setup.sh
+- [ ] Export iTerm2 plist and add to dotfiles (deferred)
+- [ ] Add iTerm2 plist install step to setup.sh (deferred)
 
 ### Phase 3: Launchd Services
-- [ ] Create `dotfiles/launchd/` with plists for cloudflared (user), FoundryVTT, AI Trading Agent
-- [ ] Create `dotfiles/scripts/install_launchd.sh`
-- [ ] Add launchd install step to setup.sh
+- [x] Create `dotfiles/launchd/` with plists for cloudflared (user), FoundryVTT, AI Trading Agent — paths use `$HOME`, resolved by install script
+- [x] Create `dotfiles/scripts/install_launchd.sh` — resolves $HOME, copies plists, loads with launchctl
+- [x] Add launchd install step to setup.sh (via setup_mac.sh)
 
 ### Phase 4: Project Repos & Documentation
-- [ ] Add project repo clone list to setup.sh (with `IS_WORK` flag filtering)
-- [ ] Update README.md with complete new-machine checklist
+- [ ] Add project repo clone list to setup.sh (deferred)
+- [x] Update README.md with complete new-machine checklist, setup flags, config table, and manual setup section
 - [ ] Document which items require manual setup (SSH keys, auth tokens, etc.)
 
 ### Phase 5: Nice-to-Have
-- [ ] Add Automator workflows to dotfiles (if still used)
-- [ ] Add qBittorrent, MusicBrainz, Sunshine configs (if still used)
-- [ ] Consider migrating to a unified config manager (e.g., chezmoi, stow)
+- [x] Add Automator workflows to dotfiles (Notify Active NIC, Toggle VPN) — symlinked from `dotfiles/automator/`
+- [ ] Add qBittorrent, MusicBrainz, Sunshine configs (deferred)
+- [ ] Consider migrating to a unified config manager (chezmoi/stow) — current symlink approach works fine for now
 
 ---
 

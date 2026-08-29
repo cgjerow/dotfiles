@@ -50,14 +50,14 @@ for tap in chrokh/tap hashicorp/tap; do
 done
 
 # Core packages
-for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr; do
+for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr cloudflared docker yt-dlp mkvtoolnix jq openjdk@11; do
     brew-upstall "$package"
 done
 
 # Work packages (opt-in)
 if [[ -v IS_WORK ]]; then
     echo "Installing work packages..."
-    for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt krew; do
+    for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt krew grpcurl; do
         brew-upstall "$package"
     done
 fi
@@ -91,6 +91,8 @@ gitCloneOrPull https://github.com/zsh-users/zsh-history-substring-search.git zsh
 gitCloneOrPull https://github.com/zsh-users/zsh-history-substring-search.git zsh-history-substring-search
 gitCloneOrPull git@github.com:cgjerow/kickstart.nvim.git nvim
 
+git config --global user.name "cgjerow"
+git config --global user.email "cgjerow@gmail.com"
 git config --global push.default current
 
 # ---------------------------------------------------------------------------
@@ -99,7 +101,11 @@ git config --global push.default current
 
 echo "Linking dotfiles to home directory..."
 ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
+ln -sf ~/dotfiles/shell/profile ~/.profile
+ln -sf ~/dotfiles/config/ssh/config ~/.ssh/config
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/lua-nvim ~/.config/nvim
+ln -sf ~/dotfiles/config/gh/config.yml ~/.config/gh/config.yml
+ln -sf ~/dotfiles/config/htop/htoprc ~/.config/htop/htoprc
 
 echo "General setup complete."

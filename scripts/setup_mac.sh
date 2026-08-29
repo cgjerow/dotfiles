@@ -33,9 +33,25 @@ cask-upstall() {
 
 echo "Installing macOS casks..."
 
-for cask in iglance iterm2; do
+for cask in iglance iterm2 magnet; do
     cask-upstall "$cask" --cask
 done
+
+# ---------------------------------------------------------------------------
+# Automator Workflows
+# ---------------------------------------------------------------------------
+
+mkdir -p ~/Library/Services
+ln -sf ~/dotfiles/config/automator/Notify\ Active\ NIC.workflow ~/Library/Services/Notify\ Active\ NIC.workflow
+ln -sf ~/dotfiles/config/automator/Toggle\ VPN.workflow ~/Library/Services/Toggle\ VPN.workflow
+
+# ---------------------------------------------------------------------------
+# LaunchAgents
+# ---------------------------------------------------------------------------
+
+if [[ -f ~/dotfiles/scripts/install_launchd.sh ]]; then
+    bash ~/dotfiles/scripts/install_launchd.sh
+fi
 
 # ---------------------------------------------------------------------------
 # Recurring macOS Settings (defaults write)

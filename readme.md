@@ -1,53 +1,96 @@
-# Install
+# Dotfiles
 
-Make sure to login and clone with ssh or you'll need to change the remote-url to the ssh one to push later.
+Cross-platform dotfiles for macOS and Linux.
 
-# New Computer Setup
+## Quick Setup
 
-## Mac Settings
+```bash
+git clone git@github.com:cgjerow/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+zsh setup.sh
+```
 
-1. Keyboard
-    * Customize modifier keys: Caps -> Esc
-    * Key Repeat - Minimize Delay
-2. Desktop Dock Settings
-    * Auto Hide - On
-    * Magnification - Off
-    * Animate Opening Applications - Off
-    * Arrange Spaces - Off
-    * Group Windows By App - On
-3. Mouse Trackpad Settings
-    * Natural Scrolling - Off
-    * Spring Loading - Off
-    * Pointer Acceleration - Off
+### Flags
 
-## Software Installs
+| Flag | Behavior |
+|------|----------|
+| *(none)* | General setup + recurring settings only |
+| `--full` | General + recurring + one-time setup (default browser, etc.) |
 
-* Chrome - Set as Default Browser
+## What Gets Installed
 
-### Dev Tools
+### Core Packages (Homebrew)
+node, nvm, tmux, fzf, bat, tldr, luajit, luarocks, neovim, gh, htop, zsh-autosuggestions, ripgrep, stylua, zoxide, entr, cloudflared, docker, yt-dlp, mkvtoolnix, jq, openjdk@11
 
-*By having cloned this repo you should already have the dev tools installed, but that can take a while.
-If that hasn't been kicked off initiate that process before proceeding to the actual setup.*
+### macOS Casks
+iglance, iterm2, magnet
 
-First, run the setup file: 
-`zsh setup.sh`
+### Work Packages (opt-in)
+Set `IS_WORK=1` in `~/dotfiles/.env` before running setup:
+glab, ngrok, terraform, ktlint, ktfmt, krew, grpcurl
 
-*If you run into issues with `brew` not installing via the script due to user input not being captured, then do that manually.*
+### Zsh Plugins
+zsh-autocomplete, zsh-syntax-highlighting, zsh-history-substring-search
 
-After running these, you should be able to start tmux and vim with the proper configurations using the shell command *ts* 
+### Neovim
+kickstart.nvim (from git@github.com:cgjerow/kickstart.nvim.git)
 
+## Configuration Files
 
-## Github
+| File | Location |
+|------|----------|
+| Shell | `~/dotfiles/shell/zshrc` → `~/.zshrc` |
+| Profile | `~/dotfiles/shell/profile` → `~/.profile` |
+| Tmux | `~/dotfiles/tmux/tmux.conf` → `~/.tmux.conf` |
+| Neovim | `~/dotfiles/lua-nvim` → `~/.config/nvim` |
+| SSH | `~/dotfiles/config/ssh/config` → `~/.ssh/config` |
+| GitHub CLI | `~/dotfiles/config/gh/config.yml` → `~/.config/gh/config.yml` |
+| htop | `~/dotfiles/config/htop/htoprc` → `~/.config/htop/htoprc` |
+| iTerm2 | `~/dotfiles/iterm2/` → `~/Library/Preferences/` (pending) |
 
-### SSH
+## LaunchAgents
 
-At this stage you can setup Github SSH by following [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+User-level services managed via `dotfiles/launchd/`:
+- **Cloudflared** (user tunnel) — `com.user.cloudflared.plist`
+- **FoundryVTT** — `com.user.foundryvtt.plist`
+- **AI Trading Agent** — `com.connorjerow.ai-trading-agent.plist`
 
-### Config
+Installed automatically by `scripts/install_launchd.sh` (plists in `config/launchd/`).
 
-You will also need to set your global configs:
+## Manual Setup Required
+
+These items must be configured manually on a new machine:
+
+1. **SSH private keys** — Copy `~/.ssh/id_*` files from backup
+2. **GitHub auth** — Run `gh auth login` (config is symlinked, tokens are not)
+3. **GCP credentials** — Copy `~/.config/gcloud/configurations/gcp-local.json` from backup
+4. **iTerm2 saved passwords** — Import from Terminal.app preferences or manual entry
+5. **Browser bookmarks** — Import from Chrome/your browser
+
+## Directory Structure
 
 ```
-git config --global user.name "Connor Jerow"
-git config --global user.email cgjerow@gmail.com
+dotfiles/
+├── setup.sh                    # Main entry point
+├── scripts/
+│   ├── setup_general.sh        # Cross-platform setup
+│   ├── setup_mac.sh            # macOS-only (casks + settings)
+│   ├── mac_settings.sh         # Recurring defaults write
+│   ├── mac_settings_one_time.sh # One-time setup (opt-in)
+│   └── install_launchd.sh      # LaunchAgent installation
+├── shell/
+│   ├── zshrc
+│   ├── profile
+│   ├── scripts.sh
+│   ├── work.sh
+│   └── media.sh
+├── tmux/
+│   └── tmux.conf
+├── lua-nvim/                   # Neovim config
+├── config/
+│   ├── ssh/config
+│   ├── gh/config.yml
+│   ├── htop/htoprc
+│   ├── automator/
+│   └── launchd/                 # LaunchAgent plists
 ```
