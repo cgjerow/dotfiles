@@ -24,6 +24,7 @@ source $MY_SCRIPTS/media.sh
 source $MY_SCRIPTS/prompt.sh
 source $MY_SCRIPTS/theme.sh
 source $MY_SCRIPTS/private_profiles.sh
+source $MY_SCRIPTS/dev-workspace.sh
 
 
 source ${PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
