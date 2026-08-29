@@ -1,8 +1,8 @@
 # Tmux dev workspace — split nvim + pi
 
 # Open nvim on left, pi on right in a new tmux window
-# Usage: dev-workspace <project-dir>
-dev-workspace() {
+# Usage: piw [project-dir]
+piw() {
   local dir="${1:-.}"
   # Resolve to absolute path
   dir="$(cd "$dir" 2>/dev/null && pwd)" || return 1
