@@ -56,3 +56,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+# Load .env file (gitignored, contains secrets)
+if [ -f "$HOME/.env" ]; then
+  set -o allexport
+  source "$HOME/.env"
+  set +o allexport
+fi
