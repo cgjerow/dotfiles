@@ -7,20 +7,19 @@ piw() {
   # Resolve to absolute path
   dir="$(cd "$dir" 2>/dev/null && pwd)" || return 1
 
-  # Start tmux if not already in a session
-  if [ -z "$TMUX" ]; then
-    tmux new-session -d -s dev -c "$dir"
-    tmux send-keys -t "dev:0.0" "nvim" Enter
-    tmux split-window -h -t "dev:0.0"
-    tmux send-keys -t "dev:0.1" "pi" Enter
-    tmux select-pane -t "dev:0.1"
-    tmux attach -t dev
-  else
+  if [ -n "$TMUX" ]; then
+    # Already in tmux: new window with nvim + pi split
     tmux new-window -n "dev" -c "$dir"
-    tmux send-keys -t "dev:0.0" "nvim" Enter
-    tmux split-window -h -t "dev:0.0"
+    tmux send-keys "nvim" Enter
+    tmux split-window -h
+    tmux send-keys "pi" Enter
+    tmux select-pane -R
+  else
+    # Not in tmux: create session with split layout, then attach
+    tmux new-session -d -s dev -c "$dir" "nvim"
+    tmux split-window -h -t "dev:0"
     tmux send-keys -t "dev:0.1" "pi" Enter
-    tmux select-pane -t "dev:0.1"
+    tmux attach -t dev
   fi
 }
 
