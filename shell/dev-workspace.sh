@@ -1,18 +1,20 @@
-# Tmux dev workspace — nvim left, pi right
+# Tmux dev workspace — nvim left, pi right (based on tms/tmuxSession pattern)
 
 piw() {
   local dir="${1:-.}"
   dir="$(cd "$dir" 2>/dev/null && pwd)" || return 1
   local session="piw"
 
-  # Check if session exists
-  tmux has-session -t "$session" 2>/dev/null
+  tmux-has-session "$session"
   if [ $? != 0 ]; then
-    tmux new-session -d -s "$session" -c "$dir"
-    tmux send-keys -t "$session:0" "nvim" Enter
-    tmux split-window -h -t "$session:0"
-    tmux send-keys -t "$session:0.1" "pi" Enter
-    tmux select-pane -t "$session:0.1"
+    cd "$dir"
+    set -- $(stty size)
+    tmux new-session -d -x "$2" -y "$(($1 - 1))" -s "$session" -n main
+    tmux splitw -h
+    tmux send-keys -t "$session:main" "nvim" C-m
+    tmux splitw -h
+    tmux send-keys -t "$session:main" "pi" C-m
+    tmux selectw -t "$session:main"
   fi
-  tmux attach -t "$session"
+  tmux a -t "$session"
 }
