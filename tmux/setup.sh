@@ -27,6 +27,25 @@ tmuxSession ()
 	tmux a -t $session
 }
 
+piw() 
+{
+	session="pi"
+	tmux-has-session $session
+	if [ $? != 0 ]
+	then
+		cd
+        set -- $(stty size) # $1 = rows $2 = columns
+		tmux new-session -d -x "$2" -y "$(($1 - 1))" -s $session -n main 
+		tmux selectw -t $session:main
+		tmux splitw -h
+		tmux selectp -t 0
+		tmux send-keys -t "$session:main" "nvim ." C-m
+		tmux selectp -t 1
+		tmux send-keys -t "$session:main" "pi" C-m
+	fi
+	tmux a -t $session
+}
+
 tmuxIdea ()
 {
 	session="idea"

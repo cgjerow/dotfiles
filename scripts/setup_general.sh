@@ -14,10 +14,10 @@ set -e
 
 mkdir -p ~/.config
 
-[ -f ~/dotfiles/.env ] || touch ~/dotfiles/.env
+[ -f ~/.env ] || touch ~/.env
 [ -f ~/dotfiles/shell/private_profiles.sh ] || touch ~/dotfiles/shell/private_profiles.sh
 
-source ~/dotfiles/.env
+source ~/.env
 
 # ---------------------------------------------------------------------------
 # Homebrew
