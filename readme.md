@@ -23,7 +23,7 @@ zsh setup.sh
 node, nvm, tmux, fzf, bat, tldr, luajit, luarocks, neovim, gh, htop, zsh-autosuggestions, ripgrep, stylua, zoxide, entr, cloudflared, docker, yt-dlp, mkvtoolnix, jq, openjdk@11
 
 ### macOS Casks
-iglance, iterm2, magnet
+iglance, iterm2, magnet, font-meslo-lg-nerd-font
 
 ### Work Packages (opt-in)
 Set `IS_WORK=1` in `~/dotfiles/.env` before running setup:
@@ -65,7 +65,8 @@ These items must be configured manually on a new machine:
 2. **GitHub auth** — Run `gh auth login` (config is symlinked, tokens are not)
 3. **GCP credentials** — Copy `~/.config/gcloud/configurations/gcp-local.json` from backup
 4. **iTerm2 saved passwords** — Import from Terminal.app preferences or manual entry
-5. **Browser bookmarks** — Import from Chrome/your browser
+5. **iTerm2 font** — Set to **MesloLGLDZ Nerd Font 16** (Preferences → Profiles → Text), **n|n** → **80**
+6. **Browser bookmarks** — Import from Chrome/your browser
 
 ## Directory Structure
 
