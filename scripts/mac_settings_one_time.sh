@@ -34,37 +34,13 @@ fi
 echo "Applying one-time macOS system settings..."
 
 # ---------------------------------------------------------------------------
-# Default Browser — Chrome
+# Default Browser
 # ---------------------------------------------------------------------------
-# This is complex because macOS stores LSHandlers in a binary plist.
-# We use a helper approach: export current handlers, add Chrome, write back.
+# Intentionally not automated.
+# Browser choice is personal, and macOS can prompt inconsistently when changed
+# from scripts. Set this manually in System Settings if desired.
 
-echo "Setting Chrome as default browser..."
-
-# Chrome bundle identifier
-CHROME_BUNDLE="com.google.Chrome"
-
-# Get current handlers (may fail if none set yet)
-CURRENT_HANDLERS=$(defaults read com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers 2>/dev/null || echo "[]")
-
-# Check if Chrome is already the default
-if echo "$CURRENT_HANDLERS" | grep -q "$CHROME_BUNDLE"; then
-    echo "Chrome is already set as default browser."
-else
-    # Add Chrome handler for http and https
-    # This is a simplified approach — for full accuracy, use a tool like
-    # defaults write or a plist editor. The below sets Chrome as default
-    # for the two main URL schemes.
-    defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers \
-        -array-add '{"LSItemContentType" = "public.url"; "LSHandlerURLScheme" = "http"; "LSHandlerRole" = "Viewer";}' \
-        -array-add '{"LSItemContentType" = "public.url"; "LSHandlerURLScheme" = "https"; "LSHandlerRole" = "Viewer";}'
-    echo "Chrome set as default browser."
-fi
-
-# Note: The above may not work perfectly on all macOS versions due to
-# the binary plist. If Chrome doesn't become default, run manually:
-#   open -a "Google Chrome" --args --make-default-browser
-# Or use: defaults write com.apple.HIToolbox AppleDefaultBrowser -string "com.google.Chrome"
+echo "Skipping default browser setup (configure manually if desired)."
 
 # ---------------------------------------------------------------------------
 # Disable Startup Sound (optional, requires sudo)

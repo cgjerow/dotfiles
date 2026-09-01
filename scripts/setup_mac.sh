@@ -22,19 +22,20 @@ echo "=== macOS-specific setup ==="
 # ---------------------------------------------------------------------------
 
 cask-upstall() {
-    if brew upgrade --cask "$1" > /dev/null; then
-        echo "$1 already installed"
+    if brew list --cask "$1" > /dev/null 2>&1; then
+        echo "$1 already installed via Homebrew — upgrading if needed..."
+        brew upgrade --cask "$1"
     else
-        echo "Install of $1 in progress..."
-        brew install --cask "$1" "$2"
+        echo "Installing $1..."
+        brew install --cask --adopt "$1"
     fi
     echo "Upstall of $1 completed."
 }
 
 echo "Installing macOS casks..."
 
-for cask in iglance iterm2 magnet font-meslo-lg-nerd-font; do
-    cask-upstall "$cask" --cask
+for cask in iglance iterm2 font-meslo-lg-nerd-font; do
+    cask-upstall "$cask"
 done
 
 # ---------------------------------------------------------------------------

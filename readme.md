@@ -15,7 +15,7 @@ zsh setup.sh
 | Flag | Behavior |
 |------|----------|
 | *(none)* | General setup + recurring settings only |
-| `--full` | General + recurring + one-time setup (default browser, etc.) |
+| `--full` | General + recurring + one-time setup |
 
 ## What Gets Installed
 
@@ -53,7 +53,6 @@ kickstart.nvim (from git@github.com:cgjerow/kickstart.nvim.git)
 User-level services managed via `dotfiles/launchd/`:
 - **Cloudflared** (user tunnel) — `com.user.cloudflared.plist`
 - **FoundryVTT** — `com.user.foundryvtt.plist`
-- **AI Trading Agent** — `com.connorjerow.ai-trading-agent.plist`
 
 Installed automatically by `scripts/install_launchd.sh` (plists in `config/launchd/`).
 

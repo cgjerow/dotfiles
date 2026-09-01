@@ -6,7 +6,7 @@
 #   ./setup.sh              → general setup + recurring settings only
 #   ./setup.sh --full       → general + recurring + one-time setup
 #
-# One-time setup (default browser, etc.) is skipped by default.
+# One-time setup is skipped by default.
 # Run with --full to execute one-time steps.
 # =============================================================================
 

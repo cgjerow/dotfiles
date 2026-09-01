@@ -65,7 +65,7 @@ Set `IS_WORK=1` in `~/dotfiles/.env` to install work packages (glab, ngrok, terr
 - All macOS casks (iglance, iterm2, magnet)
 - macOS system settings (keyboard, dock, trackpad, Finder, Safari)
 - Symlinks (zshrc, profile, config/ssh/config, config/gh/config.yml, config/htop/htoprc, tmux, nvim)
-- LaunchAgents (cloudflared, FoundryVTT, AI Trading Agent)
+- LaunchAgents (cloudflared, FoundryVTT)
 - zsh plugins (autocomplete, syntax-highlighting, history-substring-search)
 - Neovim (kickstart.nvim)
 

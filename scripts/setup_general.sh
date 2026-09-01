@@ -50,16 +50,16 @@ for tap in chrokh/tap hashicorp/tap; do
 done
 
 # Core packages
-for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr cloudflared docker yt-dlp mkvtoolnix jq openjdk@11; do
-    brew-upstall "$package"
-done
+#for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr cloudflared docker yt-dlp mkvtoolnix jq openjdk@11; do
+    # brew-upstall "$package"
+#done
 
 # Work packages (opt-in)
 if [[ "${IS_WORK:-0}" == "1" ]]; then
     echo "Installing work packages..."
-    for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt krew grpcurl; do
-        brew-upstall "$package"
-    done
+    #for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt krew grpcurl; do
+        # brew-upstall "$package"
+    #done
 fi
 
 brew cleanup
@@ -100,12 +100,20 @@ git config --global push.default current
 # ---------------------------------------------------------------------------
 
 echo "Linking dotfiles to home directory..."
-ln -sf ~/dotfiles/shell/zshrc ~/.zshrc
-ln -sf ~/dotfiles/shell/profile ~/.profile
-ln -sf ~/dotfiles/config/ssh/config ~/.ssh/config
-ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/lua-nvim ~/.config/nvim
-ln -sf ~/dotfiles/config/gh/config.yml ~/.config/gh/config.yml
-ln -sf ~/dotfiles/config/htop/htoprc ~/.config/htop/htoprc
+
+link_file() {
+    local source_path="$1"
+    local target_path="$2"
+    mkdir -p "$(dirname "$target_path")"
+    ln -sf "$source_path" "$target_path"
+}
+
+link_file ~/dotfiles/shell/zshrc ~/.zshrc
+link_file ~/dotfiles/shell/profile ~/.profile
+link_file ~/dotfiles/config/ssh/config ~/.ssh/config
+link_file ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+link_file ~/dotfiles/lua-nvim ~/.config/nvim
+link_file ~/dotfiles/config/gh/config.yml ~/.config/gh/config.yml
+link_file ~/dotfiles/config/htop/htoprc ~/.config/htop/htoprc
 
 echo "General setup complete."

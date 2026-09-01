@@ -86,14 +86,13 @@ These are `launchd` plists running in `~/Library/LaunchAgents/` and `/Library/La
 |---------|-------|----------------------|---------------|
 | **Cloudflared (user tunnel)** | `com.user.cloudflared.plist` | ❌ No | Add to `dotfiles/launchd/cloudflared-user.plist`. Tunnel name "foundry" is hardcoded. Consider making tunnel name configurable. |
 | **FoundryVTT** | `com.user.foundryvtt.plist` | ❌ No | Add to `dotfiles/launchd/foundryvtt.plist`. Hardcoded to Node v20.19.5 — may need version parameterization. |
-| **AI Trading Agent** | `com.connorjerow.ai-trading-agent.plist` | ❌ No | Add to `dotfiles/launchd/ai-trading-agent.plist`. Runs `run-tick.sh` every 900s from `ai-trading-agent-sop` repo. |
 | **Cloudflared** (system) | `homebrew.mxcl.cloudflared.plist` | ⚠️ Homebrew | System-level cloudflared (separate from user tunnel `com.user.cloudflared.plist`). |
 | **Docker socket** | `/Library/LaunchDaemons/com.docker.socket.plist` | ⚠️ App-installed | Not dotfiles concern — installed by Docker Desktop. |
 | **Docker vmnetd** | `/Library/LaunchDaemons/com.docker.vmnetd.plist` | ⚠️ App-installed | Not dotfiles concern — installed by Docker Desktop. |
 | **Muutv** | `/Library/LaunchDaemons/net.mullvad.daemon.plist` | ⚠️ App-installed | Not dotfiles concern — Mullvad VPN app. |
 
 ### Recommendation
-Create `dotfiles/launchd/` directory with plists for user cloudflared, FoundryVTT, and AI Trading Agent. Create `dotfiles/scripts/install_launchd.sh` to:
+Create `dotfiles/launchd/` directory with plists for user cloudflared and FoundryVTT. Create `dotfiles/scripts/install_launchd.sh` to:
 1. Copy plists to `~/Library/LaunchAgents/`
 2. Resolve any hardcoded paths (e.g., Node version, working directories)
 3. Run `launchctl load` for each
@@ -193,7 +192,6 @@ These are git repos in `~` that should be cloned during setup:
 
 | Repo | Location | Action |
 |------|----------|--------|
-| `ai-trading-agent-sop` | `~/ai-trading-agent-sop/` | Add clone step to setup.sh |
 | `media-servers` | `~/media-servers/` | Add clone step to setup.sh |
 | `fi-source` | `~/fi-source/` | Add clone step to setup.sh |
 | `hl-vyos-config` | `~/hl-vyos-config/` | Add clone step to setup.sh (if needed) |
@@ -227,7 +225,7 @@ These are git repos in `~` that should be cloned during setup:
 - [ ] Add iTerm2 plist install step to setup.sh (deferred)
 
 ### Phase 3: Launchd Services
-- [x] Create `dotfiles/launchd/` with plists for cloudflared (user), FoundryVTT, AI Trading Agent — paths use `$HOME`, resolved by install script
+- [x] Create `dotfiles/launchd/` with plists for cloudflared (user) and FoundryVTT — paths use `$HOME`, resolved by install script
 - [x] Create `dotfiles/scripts/install_launchd.sh` — resolves $HOME, copies plists, loads with launchctl
 - [x] Add launchd install step to setup.sh (via setup_mac.sh)
 
