@@ -55,7 +55,7 @@ for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-aut
 done
 
 # Work packages (opt-in)
-if [[ -v IS_WORK ]]; then
+if [[ "${IS_WORK:-0}" == "1" ]]; then
     echo "Installing work packages..."
     for package in glab ngrok hashicorp/tap/terraform ktlint ktfmt krew grpcurl; do
         brew-upstall "$package"
