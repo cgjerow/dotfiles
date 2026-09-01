@@ -33,7 +33,7 @@ cask-upstall() {
 
 echo "Installing macOS casks..."
 
-for cask in iglance iterm2 magnet; do
+for cask in iglance iterm2 magnet font-meslo-lg-nerd-font; do
     cask-upstall "$cask" --cask
 done
 
