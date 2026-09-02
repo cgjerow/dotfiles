@@ -224,26 +224,57 @@ require('lazy').setup {
       { 'hrsh7th/cmp-nvim-lsp' },
     },
     config = function()
+      local mason_lspconfig = require('mason-lspconfig')
+      local lspconfig = require('lspconfig')
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- Use nvim-cmp capabilities for autocompletion
+      pcall(function()
+        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      end)
+
       -- 1. Setup Mason to install your servers
-      require('mason-lspconfig').setup({
-        ensure_installed = { 'pyright', 'ruff', 'lua_ls' }, -- Actual LSP servers only
-        handlers = {
-          function(server_name)
-            -- 2. Use the new 0.11+ native way to enable servers
-            vim.lsp.enable(server_name)
-          end,
-          -- 3. Custom settings for specific servers (like lua_ls)
-          ["lua_ls"] = function()
-            vim.lsp.config("lua_ls", {
-              settings = {
-                Lua = {
-                  diagnostics = { disable = { 'missing-fields' } },
-                }
+      mason_lspconfig.setup({
+        ensure_installed = { 'pyright', 'ruff', 'lua_ls', 'ts_ls' }, -- Actual LSP servers only
+      })
+
+      -- 2. Automatic server handler initialization
+      mason_lspconfig.setup_handlers({
+        -- Default handler: setup all ensure_installed servers
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+
+        -- Custom settings for specific servers
+        ['lua_ls'] = function()
+          lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                diagnostics = { disable = { 'missing-fields' } },
               }
-            })
-            vim.lsp.enable("lua_ls")
-          end,
-        }
+            }
+          })
+        end,
+
+        ['ts_ls'] = function()
+          lspconfig.ts_ls.setup({
+            capabilities = capabilities,
+            init_options = {
+              hostInfo = 'neovim',
+            },
+            settings = {
+              typescript = {
+                inlayHints = { includeInlayEnumMemberValueHints = true },
+              },
+              javascript = {
+                inlayHints = { includeInlayEnumMemberValueHints = true },
+              },
+            },
+          })
+        end,
       })
 
       -- 4. Global Keymaps (Standard for 0.11+)
