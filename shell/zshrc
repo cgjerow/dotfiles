@@ -43,9 +43,14 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     eval "$(ssh-agent -s)"
 fi
 
-# Add all IdentityFiles from ~/.ssh/config
-for key in $(awk '/IdentityFile/ {print $2}' ~/.ssh/config); do
-    ssh-add --apple-use-keychain "$key" 2>/dev/null
+# Add IdentityFiles from SSH config(s), including optional machine-local config
+for config_file in "$HOME/.ssh/config" "$HOME/.ssh/config.local"; do
+    [ -f "$config_file" ] || continue
+
+    awk '/IdentityFile/ {print $2}' "$config_file" | while read -r key; do
+        [ -f "${key/#\~/$HOME}" ] || continue
+        ssh-add --apple-use-keychain "$key" 2>/dev/null
+    done
 done
 
 eval "$(zoxide init zsh)"
