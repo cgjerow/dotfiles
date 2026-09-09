@@ -225,7 +225,6 @@ require('lazy').setup {
     },
     config = function()
       local mason_lspconfig = require('mason-lspconfig')
-      local lspconfig = require('lspconfig')
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       -- Use nvim-cmp capabilities for autocompletion
@@ -236,46 +235,45 @@ require('lazy').setup {
       -- 1. Setup Mason to install your servers
       mason_lspconfig.setup({
         ensure_installed = { 'pyright', 'ruff', 'lua_ls', 'ts_ls' }, -- Actual LSP servers only
+        automatic_enable = false,
       })
 
-      -- 2. Automatic server handler initialization
-      mason_lspconfig.setup_handlers({
-        -- Default handler: setup all ensure_installed servers
-        function(server_name)
-          lspconfig[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-
-        -- Custom settings for specific servers
-        ['lua_ls'] = function()
-          lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = { disable = { 'missing-fields' } },
-              }
-            }
-          })
-        end,
-
-        ['ts_ls'] = function()
-          lspconfig.ts_ls.setup({
-            capabilities = capabilities,
-            init_options = {
-              hostInfo = 'neovim',
-            },
-            settings = {
-              typescript = {
-                inlayHints = { includeInlayEnumMemberValueHints = true },
-              },
-              javascript = {
-                inlayHints = { includeInlayEnumMemberValueHints = true },
-              },
-            },
-          })
-        end,
+      -- 2. Configure servers via Neovim 0.11+ native LSP API
+      vim.lsp.config('pyright', {
+        capabilities = capabilities,
       })
+      vim.lsp.enable('pyright')
+
+      vim.lsp.config('ruff', {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable('ruff')
+
+      vim.lsp.config('lua_ls', {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = { disable = { 'missing-fields' } },
+          }
+        }
+      })
+      vim.lsp.enable('lua_ls')
+
+      vim.lsp.config('ts_ls', {
+        capabilities = capabilities,
+        init_options = {
+          hostInfo = 'neovim',
+        },
+        settings = {
+          typescript = {
+            inlayHints = { includeInlayEnumMemberValueHints = true },
+          },
+          javascript = {
+            inlayHints = { includeInlayEnumMemberValueHints = true },
+          },
+        },
+      })
+      vim.lsp.enable('ts_ls')
 
       -- 4. Global Keymaps (Standard for 0.11+)
       vim.api.nvim_create_autocmd('LspAttach', {
