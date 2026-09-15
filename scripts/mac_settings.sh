@@ -121,7 +121,7 @@ defaults write -g com.apple.mouse.tracking -string "5"
 # ---------------------------------------------------------------------------
 
 # Show full URL in address bar
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+# defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 # ---------------------------------------------------------------------------
 # Apply changes

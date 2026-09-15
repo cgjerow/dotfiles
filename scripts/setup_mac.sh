@@ -34,7 +34,8 @@ cask-upstall() {
 
 echo "Installing macOS casks..."
 
-for cask in iglance iterm2 font-meslo-lg-nerd-font; do
+brew install stats
+for cask in iterm2 font-meslo-lg-nerd-font; do
     cask-upstall "$cask"
 done
 

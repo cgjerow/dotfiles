@@ -25,13 +25,13 @@ source ~/.env
 
 echo "Homebrew setup in progress..."
 
-which -s brew
-if [[ $? != 0 ]]; then
+if ! command -v brew >/dev/null 2>&1; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
     brew update
 fi
+
 
 brew-upstall() {
     if brew ls --versions "$1" > /dev/null; then
@@ -45,14 +45,15 @@ brew-upstall() {
 }
 
 # Taps
-for tap in chrokh/tap hashicorp/tap; do
+for tap in chrokh/tap; do
+    brew trust "$tap"
     brew tap "$tap"
 done
 
 # Core packages
-#for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr cloudflared docker yt-dlp mkvtoolnix jq openjdk@11; do
-    # brew-upstall "$package"
-#done
+for package in node nvm tmux fzf bat tldr luajit luarocks neovim gh htop zsh-autosuggestions ripgrep stylua zoxide entr docker mkvtoolnix jq; do
+    brew-upstall "$package"
+done
 
 # Work packages (opt-in)
 if [[ "${IS_WORK:-0}" == "1" ]]; then
@@ -71,7 +72,6 @@ brew cleanup
 echo "Installing global packages..."
 
 npm install -g eslint
-npm install -g tldr
 luarocks install luasocket
 
 # ---------------------------------------------------------------------------
