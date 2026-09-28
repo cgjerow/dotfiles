@@ -25,6 +25,9 @@ navigate_pane_up = "k"
 navigate_pane_right = "l"
 
 [ui]
+# Don't prompt for a new tab name; let Herdr use its generated default.
+prompt_new_tab_name = false
+
 # Pane borders: auto (drawn only for split panes)
 pane_borders = "auto"
 
