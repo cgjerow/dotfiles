@@ -72,6 +72,7 @@ brew cleanup
 echo "Installing global packages..."
 
 npm install -g eslint
+npm install -g @playwright/cli@latest
 luarocks install luasocket
 
 # ---------------------------------------------------------------------------
@@ -94,6 +95,20 @@ gitCloneOrPull git@github.com:cgjerow/kickstart.nvim.git nvim
 git config --global user.name "cgjerow"
 git config --global user.email "cgjerow@gmail.com"
 git config --global push.default current
+
+# ---------------------------------------------------------------------------
+# Ketch CLI
+# ---------------------------------------------------------------------------
+
+if ! command -v ketch >/dev/null 2>&1; then
+    echo "Installing Ketch CLI..."
+    curl -fsSL https://ketch.run/install | sh
+    echo "Configuring Ketch CLI..."
+    ketch config set backend searxng
+    ketch config set searxng_url http://searxng.lab.home.arpa
+else
+    echo "Ketch CLI already installed."
+fi
 
 # ---------------------------------------------------------------------------
 # Symlinks

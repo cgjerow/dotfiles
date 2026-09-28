@@ -68,6 +68,7 @@ Set `IS_WORK=1` in `~/dotfiles/.env` to install work packages (glab, ngrok, terr
 - LaunchAgents (cloudflared, FoundryVTT)
 - zsh plugins (autocomplete, syntax-highlighting, history-substring-search)
 - Neovim (kickstart.nvim)
+- Ketch CLI
 
 ### Pending / Deferred
 - iTerm2 plist export (sensitive: saved passwords)
