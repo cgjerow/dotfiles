@@ -1,0 +1,44 @@
+onboarding = false
+# herdr configuration — derived from tmux config
+
+[keys]
+# Prefix key: Ctrl+S (matches tmux's set-option -g prefix C-s)
+prefix = "ctrl+s"
+
+# Prefix-mode pane navigation (matches tmux bind h/j/k/l)
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Toggle sidebar (prefix+u; prefix+h taken by pane navigation)
+toggle_sidebar = "prefix+u"
+
+# Split panes (matches tmux bind - and bind \)
+split_horizontal = "prefix+minus"
+split_vertical = "prefix+backslash"
+
+# Navigate-mode movement (matches tmux bind h/j/k/l in navigate mode)
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+[ui]
+# Pane borders: auto (drawn only for split panes)
+pane_borders = "auto"
+
+# No padding between panes
+pane_gaps = false
+
+# Accent color for borders — brightcyan (matches tmux pane-active-border-style fg="brightcyan")
+accent = "cyan"
+
+# Start with sidebar collapsed
+sidebar_start_collapsed = true
+
+[theme]
+# Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
+#                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
+#                  vesper
+# name = "catppuccin"

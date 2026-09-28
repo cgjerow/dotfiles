@@ -130,5 +130,6 @@ link_file ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 link_file ~/dotfiles/lua-nvim ~/.config/nvim
 link_file ~/dotfiles/config/gh/config.yml ~/.config/gh/config.yml
 link_file ~/dotfiles/config/htop/htoprc ~/.config/htop/htoprc
+link_file ~/dotfiles/herdr/config.toml ~/.config/herdr/config.toml
 
 echo "General setup complete."
